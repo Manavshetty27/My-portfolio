@@ -1,0 +1,3278 @@
+/* ==========================================================================
+   PORTFOLIO DESIGN SYSTEM & STYLESHEET
+   Features:
+   - Fixed Vertical Left Navigation Bar (Pixel Art Retro HUD Style)
+   - 8 Sections: Home, About Me, Skills, Certificates, Projects, Education, Chat, Contact
+   - CSS Media Query browser theme detection (Night/Dark & Day/Light mode)
+   - Background image integration with scanline overlay
+   - Fully accessible, interactive, and responsive
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. COLOR TOKENS & SYSTEM THEME DETECTION VIA CSS MEDIA QUERIES
+   -------------------------------------------------------------------------- */
+
+/* Default Light Theme Variables (Applied when browser prefers light mode) */
+:root {
+  --theme-mode: "light";
+  --bg-primary: #f0f3f8;
+  --bg-secondary: #e2e8f0;
+  --bg-surface: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --bg-card-hover: #ffffff;
+  --border-color: rgba(15, 23, 42, 0.12);
+  --border-hover: rgba(79, 70, 229, 0.5);
+
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+
+  --accent-primary: #4f46e5;
+  --accent-secondary: #7c3aed;
+  --accent-gradient: linear-gradient(135deg, #4f46e5 0%, #9333ea 50%, #db2777 100%);
+  --accent-glow: rgba(79, 70, 229, 0.2);
+
+  /* Pixel Art Style Design Tokens (Light Mode) */
+  --pixel-border: #1e293b;
+  --pixel-bg: #ffffff;
+  --pixel-sidebar-bg: #f8fafc;
+  --pixel-shadow: #0f172a;
+  --pixel-shadow-inset: rgba(0, 0, 0, 0.14);
+  --pixel-highlight: rgba(255, 255, 255, 0.9);
+  --pixel-accent: #4f46e5;
+  --pixel-accent-dark: #3730a3;
+  --pixel-accent-text: #ffffff;
+  --pixel-gold: #d97706;
+  --pixel-green: #16a34a;
+  --pixel-blue: #0284c7;
+
+  /* Hero background image blending overlay (Light Mode) */
+  --hero-overlay: linear-gradient(180deg, rgba(240, 243, 248, 0.88) 0%, rgba(240, 243, 248, 0.96) 100%);
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  --transition: all 0.2s ease;
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.08);
+
+  --sidebar-width: 270px;
+}
+
+/* AUTOMATIC BROWSER DEFAULT THEME DETECTION VIA CSS MEDIA QUERY */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --theme-mode: "dark";
+    --bg-primary: #0a0e17;
+    --bg-secondary: #111726;
+    --bg-surface: #161e31;
+    --bg-card: rgba(22, 30, 49, 0.85);
+    --bg-card-hover: rgba(30, 41, 67, 0.95);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --border-hover: rgba(99, 102, 241, 0.45);
+
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+
+    --accent-primary: #6366f1;
+    --accent-secondary: #a855f7;
+    --accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+    --accent-glow: rgba(99, 102, 241, 0.3);
+
+    /* Pixel Art Style Design Tokens (Dark Mode) */
+    --pixel-border: #05070c;
+    --pixel-bg: #121827;
+    --pixel-sidebar-bg: #0d121f;
+    --pixel-shadow: #000000;
+    --pixel-shadow-inset: rgba(0, 0, 0, 0.5);
+    --pixel-highlight: rgba(255, 255, 255, 0.14);
+    --pixel-accent: #6366f1;
+    --pixel-accent-dark: #4338ca;
+    --pixel-accent-text: #ffffff;
+    --pixel-gold: #f59e0b;
+    --pixel-green: #22c55e;
+    --pixel-blue: #38bdf8;
+
+    --hero-overlay: linear-gradient(180deg, rgba(10, 14, 23, 0.88) 0%, rgba(10, 14, 23, 0.96) 100%);
+
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Explicit User Override: Night / Dark Mode */
+:root[data-theme="dark"] {
+  --theme-mode: "dark";
+  --bg-primary: #0a0e17;
+  --bg-secondary: #111726;
+  --bg-surface: #161e31;
+  --bg-card: rgba(22, 30, 49, 0.85);
+  --bg-card-hover: rgba(30, 41, 67, 0.95);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-hover: rgba(99, 102, 241, 0.45);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+
+  --accent-primary: #6366f1;
+  --accent-secondary: #a855f7;
+  --accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+  --accent-glow: rgba(99, 102, 241, 0.3);
+
+  --pixel-border: #05070c;
+  --pixel-bg: #121827;
+  --pixel-sidebar-bg: #0d121f;
+  --pixel-shadow: #000000;
+  --pixel-shadow-inset: rgba(0, 0, 0, 0.5);
+  --pixel-highlight: rgba(255, 255, 255, 0.14);
+  --pixel-accent: #6366f1;
+  --pixel-accent-dark: #4338ca;
+  --pixel-accent-text: #ffffff;
+  --pixel-gold: #f59e0b;
+  --pixel-green: #22c55e;
+  --pixel-blue: #38bdf8;
+
+  --hero-overlay: linear-gradient(180deg, rgba(10, 14, 23, 0.88) 0%, rgba(10, 14, 23, 0.96) 100%);
+
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+/* Explicit User Override: Day / Light Mode */
+:root[data-theme="light"] {
+  --theme-mode: "light";
+  --bg-primary: #f0f3f8;
+  --bg-secondary: #e2e8f0;
+  --bg-surface: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --bg-card-hover: #ffffff;
+  --border-color: rgba(15, 23, 42, 0.12);
+  --border-hover: rgba(79, 70, 229, 0.5);
+
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+
+  --accent-primary: #4f46e5;
+  --accent-secondary: #7c3aed;
+  --accent-gradient: linear-gradient(135deg, #4f46e5 0%, #9333ea 50%, #db2777 100%);
+  --accent-glow: rgba(79, 70, 229, 0.2);
+
+  --pixel-border: #1e293b;
+  --pixel-bg: #ffffff;
+  --pixel-sidebar-bg: #f8fafc;
+  --pixel-shadow: #0f172a;
+  --pixel-shadow-inset: rgba(0, 0, 0, 0.14);
+  --pixel-highlight: rgba(255, 255, 255, 0.9);
+  --pixel-accent: #4f46e5;
+  --pixel-accent-dark: #3730a3;
+  --pixel-accent-text: #ffffff;
+  --pixel-gold: #d97706;
+  --pixel-green: #16a34a;
+  --pixel-blue: #0284c7;
+
+  --hero-overlay: linear-gradient(180deg, rgba(240, 243, 248, 0.88) 0%, rgba(240, 243, 248, 0.96) 100%);
+
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   2. BASE RESET & PAGE LAYOUT
+   -------------------------------------------------------------------------- */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Desktop layout adjustment for the fixed left sidebar */
+@media (min-width: 1025px) {
+  body {
+    padding-left: var(--sidebar-width);
+  }
+}
+
+h1, h2, h3, h4 {
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 5rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.section-header {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.section-kicker {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  letter-spacing: -0.025em;
+}
+
+.pixel-heading-sm {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 1.75rem;
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+}
+
+/* --------------------------------------------------------------------------
+   3. VERTICAL NAVIGATION BAR (LEFT SIDEBAR)
+   -------------------------------------------------------------------------- */
+
+.pixel-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--sidebar-width);
+  background: var(--pixel-sidebar-bg);
+  border-right: 1px solid var(--border-color);
+  box-shadow: 8px 0 24px rgba(15, 23, 42, 0.06);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-inner {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 1.25rem 1rem;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* Sidebar Top / Brand & Player Status HUD */
+.sidebar-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1.25rem;
+}
+
+.sidebar-title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--pixel-border);
+  color: #38bdf8;
+  padding: 0.35rem 0.6rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.72rem;
+  border: 1px solid #ffffff15;
+  border-radius: 8px;
+}
+
+.sidebar-close-btn {
+  display: none;
+  background: #ef4444;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.65rem;
+  width: 20px;
+  height: 20px;
+  line-height: 18px;
+  text-align: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.sidebar-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 0.25rem;
+}
+
+.pixel-brand-icon {
+  font-size: 1.25rem;
+}
+
+.logo-code {
+  color: var(--accent-primary);
+}
+
+.sidebar-player-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.35rem 0.6rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Sidebar Navigation Links */
+.sidebar-nav {
+  flex-grow: 1;
+}
+
+.sidebar-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.sidebar-nav-item {
+  position: relative;
+}
+
+.sidebar-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.7rem 0.85rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  user-select: none;
+  position: relative;
+}
+
+.nav-cursor {
+  opacity: 0;
+  color: var(--pixel-green);
+  font-size: 0.65rem;
+  transform: translateX(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.nav-icon {
+  font-size: 0.95rem;
+  min-width: 1.25rem;
+  text-align: center;
+}
+
+.nav-text {
+  letter-spacing: 0.02em;
+}
+
+/* Hover state: Pixel button highlights with arrow */
+.sidebar-nav-link:hover {
+  color: var(--text-primary);
+  background: var(--bg-surface);
+  border-color: var(--border-color);
+  transform: translateX(2px);
+}
+
+.sidebar-nav-link:hover .nav-cursor {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Active State (Scrollspy / Selected section) */
+.sidebar-nav-link.is-active {
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--accent-primary);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.sidebar-nav-link.is-active .nav-cursor {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--pixel-gold);
+}
+
+.sidebar-nav-link:focus-visible {
+  outline: 2px solid var(--pixel-accent);
+  outline-offset: 2px;
+}
+
+/* Sidebar Footer & Theme Toggle */
+.sidebar-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+}
+
+.sidebar-theme-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.theme-label-small {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.sidebar-toggle-btn {
+  flex-grow: 1;
+}
+
+.sidebar-status-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.sidebar-status-text {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.65rem;
+  color: var(--pixel-green);
+  letter-spacing: 0.05em;
+}
+
+/* --------------------------------------------------------------------------
+   4. MOBILE TOP BAR & DRAWER BACKDROP
+   -------------------------------------------------------------------------- */
+
+.mobile-top-bar {
+  display: none;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.75rem 1.25rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.sidebar-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* --------------------------------------------------------------------------
+   5. PIXEL BUTTONS & TOGGLE RULES
+   -------------------------------------------------------------------------- */
+
+.pixel-toggle-btn {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.55rem 0.85rem;
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  user-select: none;
+}
+
+.pixel-toggle-btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-lg);
+}
+
+.pixel-toggle-btn:active {
+  transform: translateY(0);
+}
+
+.pixel-btn-sm {
+  font-size: 0.8rem;
+  padding: 0.45rem 0.65rem;
+}
+
+/* Theme Icon Visibility via CSS Media Queries & Explicit Overrides */
+.theme-icon-sun {
+  display: none;
+}
+.theme-icon-moon {
+  display: inline-block;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-icon-sun {
+    display: inline-block;
+    color: var(--pixel-gold);
+  }
+  :root:not([data-theme="light"]) .theme-icon-moon {
+    display: none;
+  }
+}
+
+:root[data-theme="dark"] .theme-icon-sun {
+  display: inline-block;
+  color: var(--pixel-gold);
+}
+:root[data-theme="dark"] .theme-icon-moon {
+  display: none;
+}
+
+:root[data-theme="light"] .theme-icon-sun {
+  display: none;
+}
+:root[data-theme="light"] .theme-icon-moon {
+  display: inline-block;
+}
+
+/* Core Pixel Art Box Component */
+.pixel-box {
+  background: var(--pixel-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+/* Pixel Buttons */
+.pixel-btn {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.4;
+  padding: 0.8rem 1.2rem;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  user-select: none;
+}
+
+.pixel-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-hover);
+}
+
+.pixel-btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.pixel-btn-action {
+  background: var(--pixel-accent);
+  color: var(--pixel-accent-text);
+}
+
+.pixel-btn-secondary {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+.pixel-btn-outline {
+  background: var(--bg-surface);
+  color: var(--pixel-green);
+  border-color: var(--pixel-border);
+}
+
+/* Pixel Badges */
+.pixel-badge {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.4rem 0.65rem;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  box-shadow: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.pixel-badge-primary {
+  background: var(--pixel-gold);
+  color: #000000;
+  font-weight: 700;
+}
+
+.pixel-badge-status {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--pixel-green);
+  border: 1px solid var(--pixel-border);
+  display: inline-block;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* --------------------------------------------------------------------------
+   6. HERO SECTION - PIXEL ART STYLE & BACKGROUND IMAGE
+   -------------------------------------------------------------------------- */
+
+.pixel-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--hero-overlay), url('background.jpeg') center/cover no-repeat;
+  border-bottom: 1px solid var(--border-color);
+  padding: 4.5rem 0 5rem;
+}
+
+.pixel-scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.14) 0px,
+    rgba(0, 0, 0, 0.14) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.18;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.25fr 0.85fr;
+  align-items: start;
+  gap: 2.5rem;
+}
+
+.hero-container > * {
+  min-width: 0;
+}
+
+.hero-dialog-box {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.dialog-title-bar {
+  background: var(--pixel-border);
+  color: #ffffff;
+  padding: 0.55rem 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  user-select: none;
+}
+
+.dialog-bar-title {
+  color: #38bdf8;
+  /* Let long labels shrink before they push window controls off small screens. */
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dialog-controls {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.control-btn {
+  display: inline-block;
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  width: 16px;
+  height: 16px;
+  line-height: 15px;
+  text-align: center;
+  font-size: 0.6rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid #ffffff;
+}
+
+.control-close {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.dialog-body {
+  padding: 2rem;
+  min-width: 0;
+}
+
+.pixel-badge-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.pixel-heading {
+  margin-bottom: 0.75rem;
+  line-height: 1.35;
+}
+
+.hero-greeting {
+  display: block;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.hero-name-glitch {
+  display: inline-block;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle-role {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  letter-spacing: 0.01em;
+  margin-bottom: 1.25rem;
+}
+
+.hero-tagline {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  border-left: 3px solid var(--accent-primary);
+  border-radius: 0 10px 10px 0;
+  padding: 0.85rem 1.15rem;
+  margin-bottom: 2rem;
+  box-shadow: none;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.hero-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 2px dashed var(--border-color);
+}
+
+.pixel-social-link {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 0.3rem 0.5rem;
+  border: 1px solid transparent;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.pixel-social-link:hover {
+  color: var(--accent-primary);
+  background: var(--bg-surface);
+  border-color: var(--border-color);
+  transform: translateY(-1px);
+}
+
+/* Character Profile Card */
+.hero-character-card {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.character-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.character-slot-label {
+  color: var(--text-primary);
+}
+
+.character-class-tag {
+  color: var(--pixel-accent);
+}
+
+.character-portrait-frame {
+  position: relative;
+  width: 100%;
+  max-width: 270px;
+  aspect-ratio: 1;
+  margin: 0 auto 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  background: #000000;
+}
+
+.character-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.portrait-pixel-glare {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.character-stats-hud {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: 140px 1fr 65px;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.7rem;
+}
+
+.stat-name {
+  color: var(--text-primary);
+  letter-spacing: -0.05em;
+}
+
+.stat-val {
+  text-align: right;
+  color: var(--text-muted);
+}
+
+.pixel-progress-bar {
+  height: 14px;
+  background: var(--bg-secondary);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.pixel-progress-fill {
+  height: 100%;
+}
+
+.hp-fill {
+  background: var(--pixel-green);
+}
+
+.mp-fill {
+  background: var(--pixel-blue);
+}
+
+.character-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 0.85rem;
+  margin-top: 0.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.meta-label {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+.meta-value {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.pixel-press-start {
+  margin-top: 1.25rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.7rem;
+  color: var(--pixel-gold);
+  animation: blinkPrompt 2.5s ease-in-out infinite;
+}
+
+@keyframes blinkPrompt {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* --------------------------------------------------------------------------
+   7. ABOUT SECTION (CLEAN, MINIMALISTIC DESIGN + CIRCULAR PORTRAIT)
+   -------------------------------------------------------------------------- */
+
+.about-clean-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+/* Left Column: Clean Profile Card & Circular Portrait */
+.about-profile-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 1.75rem;
+  text-align: center;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.about-profile-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-lg);
+}
+
+.circular-portrait-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.circular-portrait-ring {
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  border: 4px solid var(--accent-primary);
+  box-shadow: 
+    0 0 0 6px var(--bg-surface),
+    0 12px 28px -6px var(--accent-glow);
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 1.15rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.circular-portrait-ring:hover {
+  transform: scale(1.04);
+  box-shadow: 
+    0 0 0 6px var(--bg-surface),
+    0 16px 36px -4px var(--accent-glow);
+}
+
+.circular-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.circular-portrait-ring:hover .circular-portrait-img {
+  transform: scale(1.06);
+}
+
+.portrait-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.status-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--pixel-green);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
+  animation: pulse 1.8s infinite;
+}
+
+.profile-quick-meta .profile-name {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.profile-quick-meta .profile-role {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--accent-primary);
+  margin-bottom: 1.25rem;
+}
+
+.profile-details-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: left;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.15rem 0;
+  margin-bottom: 1.5rem;
+}
+
+.profile-detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.detail-label {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.detail-value {
+  color: var(--text-primary);
+  font-weight: 600;
+  text-align: right;
+}
+
+.profile-cta-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* Generic Clean Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: center;
+  user-select: none;
+}
+
+.btn-primary {
+  background: var(--accent-gradient);
+  color: #ffffff;
+  box-shadow: 0 4px 14px var(--accent-glow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--accent-glow);
+}
+
+.btn-secondary {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  transform: translateY(-2px);
+}
+
+/* Right Column: Bio, Highlights & Personal Interests */
+.about-content-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+.about-bio-block .about-subheading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+}
+
+.about-lead-text {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: 0.85rem;
+}
+
+.about-secondary-text {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+/* Career Highlights */
+.about-highlights-section .highlights-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.highlights-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.highlight-item {
+  display: flex;
+  gap: 1.15rem;
+  align-items: flex-start;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.4rem;
+  transition: var(--transition);
+}
+
+.highlight-item:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.highlight-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  min-width: 2.25rem;
+  text-align: center;
+  margin-top: 0.15rem;
+}
+
+.highlight-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+
+.highlight-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* Personal Interests */
+.about-interests-section .interests-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.interests-intro {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.interests-tags-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.interest-tag {
+  font-size: 0.85rem;
+  padding: 0.5rem 0.95rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: var(--transition);
+  cursor: default;
+  user-select: none;
+}
+
+.interest-tag:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* --------------------------------------------------------------------------
+   8. SKILLS SECTION (PIXEL ART PROGRESS BARS, TABS & INVENTORY TOOLBELT)
+   -------------------------------------------------------------------------- */
+
+.skills-hud-banner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 0.65rem 1.25rem;
+  box-shadow: var(--shadow-sm);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  margin-top: 1.25rem;
+  user-select: none;
+}
+
+.hud-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Category Filter Tabs */
+.skills-filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-bottom: 2.5rem;
+}
+
+.pixel-tab-btn {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.65rem 1rem;
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  user-select: none;
+}
+
+.pixel-tab-btn:hover {
+  transform: translateY(-1px);
+  color: var(--text-primary);
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-lg);
+}
+
+.pixel-tab-btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.pixel-tab-btn.is-active {
+  background: var(--pixel-accent);
+  color: #ffffff;
+  border-color: var(--pixel-accent);
+  box-shadow: 0 4px 12px var(--accent-glow);
+}
+
+/* Skills Panels Grid */
+.skills-panels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.skill-panel-card {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-width: 0;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.skill-panel-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.skill-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.85rem;
+}
+
+.panel-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.panel-icon {
+  font-size: 1.35rem;
+}
+
+.panel-heading {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.panel-rank-badge {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+  background: var(--pixel-gold);
+  color: #000000;
+  font-weight: 700;
+  border: 1px solid var(--pixel-border);
+  box-shadow: none;
+}
+
+/* Skill Bars List & Segmented Progress Bars */
+.skill-bars-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.skill-bar-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  transition: transform 0.15s ease;
+}
+
+.skill-bar-item:hover {
+  transform: translateX(2px);
+}
+
+.skill-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skill-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.skill-icon {
+  font-size: 1rem;
+}
+
+.skill-level-tag {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.7rem;
+  color: var(--accent-primary);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  padding: 0.2rem 0.45rem;
+  border-radius: var(--radius-sm);
+}
+
+/* 8-Bit Segmented Progress Bar */
+.pixel-skill-bar {
+  height: 16px;
+  background: var(--bg-secondary);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.pixel-skill-fill {
+  height: 100%;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.skill-bar-item:hover .pixel-skill-fill {
+  filter: brightness(1.2);
+}
+
+/* Segmented block patterns for different skill groups */
+.fill-blue {
+  background: #3b82f6;
+}
+
+.fill-gold {
+  background: #f59e0b;
+}
+
+.fill-cyan {
+  background: #06b6d4;
+}
+
+.fill-green {
+  background: #22c55e;
+}
+
+.fill-purple {
+  background: #a855f7;
+}
+
+/* Developer Toolbelt Inventory (Styled List) */
+.skills-inventory-box {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.inventory-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.85rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+}
+
+.inventory-title {
+  color: #38bdf8;
+}
+
+.inventory-subtitle {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}
+
+.inventory-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.75rem;
+  list-style: none;
+}
+
+.inventory-slot {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 0.65rem 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.inventory-slot:hover {
+  border-color: var(--accent-primary);
+  color: var(--text-primary);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  background: var(--bg-card-hover);
+}
+
+.inventory-slot:focus-visible {
+  outline: 2px dashed var(--pixel-accent);
+  outline-offset: 2px;
+}
+
+.slot-icon {
+  font-size: 1.15rem;
+}
+
+.slot-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --------------------------------------------------------------------------
+   9. CERTIFICATES SECTION
+   -------------------------------------------------------------------------- */
+
+.certificates-grid {
+  display: grid;
+  /* Keep the track within its container when the viewport is narrower than 300px. */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 1.75rem;
+}
+
+.certificate-card {
+  padding: 1.75rem;
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  transition: var(--transition);
+}
+
+.certificate-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    inset -4px -4px 0px 0px var(--pixel-shadow-inset),
+    inset 4px 4px 0px 0px var(--pixel-highlight),
+    8px 8px 0px 0px var(--pixel-shadow);
+}
+
+.cert-badge-icon {
+  font-size: 2rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 0.5rem;
+  box-shadow: var(--shadow-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cert-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.cert-issuer {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  color: var(--pixel-gold);
+  letter-spacing: 0.05em;
+}
+
+.cert-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.cert-meta {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.cert-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   10. TIMELINE / EXPERIENCE & PROJECTS SECTION
+   -------------------------------------------------------------------------- */
+
+.timeline-section {
+  position: relative;
+}
+
+.timeline-spine {
+  position: relative;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 1rem 0 2rem 3rem;
+}
+
+/* Continuous vertical timeline gradient guide line */
+.timeline-spine::before {
+  content: '';
+  position: absolute;
+  top: 1.5rem;
+  bottom: 2rem;
+  left: 14px;
+  width: 3px;
+  background: linear-gradient(180deg, var(--accent-primary) 0%, var(--accent-secondary) 50%, rgba(99, 102, 241, 0.15) 100%);
+  border-radius: 999px;
+}
+
+.timeline-event-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.timeline-event-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Timeline Node / Marker with pulsing animation and glowing hover state */
+.timeline-node {
+  position: absolute;
+  left: -3rem;
+  top: 1.6rem;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  border: 3px solid var(--accent-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 0 0 5px var(--bg-primary);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              border-color 0.35s ease, 
+              box-shadow 0.35s ease;
+}
+
+.node-inner-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              background-color 0.35s ease;
+}
+
+/* Node reactive hover state */
+.timeline-event-item:hover .timeline-node {
+  transform: scale(1.15);
+  border-color: var(--accent-secondary);
+  box-shadow: 0 0 0 6px var(--accent-glow), 0 0 16px var(--accent-primary);
+}
+
+.timeline-event-item:hover .node-inner-dot {
+  background: var(--accent-secondary);
+  transform: scale(1.3);
+}
+
+/* Rounded Event Card with glassmorphism and smooth hover elevation */
+.timeline-event-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  border-radius: 18px;
+  padding: 1.75rem 2.2rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 18px -2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              border-color 0.35s ease, 
+              background-color 0.35s ease;
+  overflow: hidden;
+}
+
+/* Top accent gradient bar on hover */
+.timeline-event-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3.5px;
+  background: transparent;
+  transition: background 0.35s ease;
+  border-radius: 18px 18px 0 0;
+}
+
+/* Card Hover Elevation Effect */
+.timeline-event-card:hover,
+.timeline-event-item:hover .timeline-event-card {
+  transform: translateY(-4px);
+  border-color: var(--border-hover);
+  background-color: var(--bg-card-hover);
+  box-shadow: 0 16px 32px -4px var(--accent-glow), 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.timeline-event-card:hover::before,
+.timeline-event-item:hover .timeline-event-card::before {
+  background: var(--accent-gradient);
+}
+
+/* Card Header: Date Pill & Category Badge */
+.event-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+}
+
+.event-date-pill {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.08);
+  color: var(--accent-primary);
+  border: 1px solid rgba(99, 102, 241, 0.22);
+  letter-spacing: 0.04em;
+}
+
+.event-category-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 0.32rem 0.85rem;
+  border-radius: 999px;
+  letter-spacing: 0.03em;
+  transition: transform 0.2s ease;
+}
+
+.timeline-event-item:hover .event-category-badge {
+  transform: translateY(-1px);
+}
+
+.badge-career {
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-project {
+  background: rgba(168, 85, 247, 0.12);
+  color: #a855f7;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.badge-education {
+  background: rgba(2, 132, 199, 0.12);
+  color: #0284c7;
+  border: 1px solid rgba(2, 132, 199, 0.3);
+}
+
+/* Card Typography */
+.event-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+  line-height: 1.35;
+}
+
+.event-entity {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  margin-bottom: 0.85rem;
+}
+
+.event-description {
+  font-size: 0.93rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 1.1rem;
+}
+
+/* Rounded Tech Tags Pill List */
+.event-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.event-tech-tags .tech-tag {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.74rem;
+  font-weight: 500;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  transition: all 0.25s ease;
+}
+
+.timeline-event-card:hover .event-tech-tags .tech-tag {
+  border-color: rgba(99, 102, 241, 0.25);
+}
+
+.event-tech-tags .tech-tag:hover {
+  background: var(--bg-surface);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Action Links */
+.event-actions {
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px dashed var(--border-color);
+}
+
+.event-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  transition: gap 0.25s ease, color 0.25s ease;
+}
+
+.event-link:hover {
+  gap: 0.7rem;
+  color: var(--accent-secondary);
+  text-decoration: underline;
+}
+
+/* Backwards compatibility for any legacy references */
+.timeline-container {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  padding-left: 2rem;
+  border-left: 3px solid var(--border-color);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -2.65rem;
+  top: 0.25rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  box-shadow: 0 0 0 4px var(--bg-primary);
+}
+
+.timeline-card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   11. PROJECTS SECTION — Thumbnails, Overlay, Filter, Modals
+   -------------------------------------------------------------------------- */
+
+/* Section subtitle */
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ── Project Filter Bar ── */
+/* Horizontal scrollable pill-tab bar for filtering by category */
+.project-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.proj-filter-btn {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.4rem 1.1rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  letter-spacing: 0.03em;
+}
+
+.proj-filter-btn:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  background: rgba(99, 102, 241, 0.06);
+}
+
+.proj-filter-btn.is-active {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: #fff;
+  box-shadow: 0 2px 12px var(--accent-glow);
+}
+
+/* ── Projects Grid ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.75rem;
+}
+
+/* ── Project Card ── */
+/* Each card has a consistent margin, padding structure and hover elevation.
+   cursor:pointer signals interactivity since it acts as a button. */
+.project-card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  outline: none;
+  /* Smooth hover transition for transform + shadow + border */
+  transition:
+    transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.32s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.25s ease;
+}
+
+.project-card:hover,
+.project-card:focus-visible {
+  transform: translateY(-6px);
+  border-color: var(--border-hover);
+  box-shadow: 0 20px 40px -8px var(--accent-glow), 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.project-card:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 3px;
+}
+
+/* Entry animation class — added by JS on load and filter */
+@keyframes cardFadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.project-card.anim-in {
+  animation: cardFadeIn 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* ── Thumbnail Image Container ── */
+/* Position:relative enables the absolute overlay and badge positioning */
+.project-thumbnail {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;    /* Consistent 16:9 ratio for all thumbnails */
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(168,85,247,0.08));
+}
+
+/* The actual thumbnail image — fills the container, scales on hover */
+.project-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.35s ease;
+}
+
+/* Scale image slightly and dim it when card is hovered */
+.project-card:hover .project-thumb-img {
+  transform: scale(1.06);
+  filter: brightness(0.75);
+}
+
+/* ── Thumbnail Hover Overlay ── */
+/* Invisible by default; fades in on card hover to show "🔍 View Details" */
+.project-thumb-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.project-card:hover .project-thumb-overlay {
+  opacity: 1;
+}
+
+.thumb-overlay-text {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.06em;
+  padding: 0.6rem 1.2rem;
+  border: 2px solid rgba(255,255,255,0.7);
+  border-radius: 8px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* ── Category Badges (positioned in thumbnail corner) ── */
+.project-type-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  backdrop-filter: blur(6px);
+}
+
+.badge-backend  { background: rgba(16,185,129,0.85);  color: #fff; }
+.badge-fullstack{ background: rgba(99,102,241,0.85);  color: #fff; }
+.badge-tooling  { background: rgba(168,85,247,0.85);  color: #fff; }
+.badge-game     { background: rgba(245,158,11,0.85);  color: #fff; }
+
+/* ── Project Card Body ── */
+.project-body {
+  padding: 1.4rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.project-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.project-description {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+/* Tech tags row — horizontal scrollable list */
+.project-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0 0 1.2rem;
+  padding: 0;
+}
+
+/* ── Project Action Links ── */
+.project-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 0.85rem;
+  border-top: 1px dashed var(--border-color);
+}
+
+.project-link {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.project-link:hover {
+  color: var(--accent-primary);
+  transform: translateX(2px);
+}
+
+/* "Details" button gets a subtle pill highlight */
+.project-link-detail {
+  color: var(--accent-primary);
+  background: rgba(99,102,241,0.08);
+  border: 1px solid rgba(99,102,241,0.2);
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+}
+
+.project-link-detail:hover {
+  background: var(--accent-primary);
+  color: #fff;
+  transform: none;
+}
+
+/* --------------------------------------------------------------------------
+   12. PROJECT DETAIL MODALS
+   -------------------------------------------------------------------------- */
+
+/* Modal container — fixed overlay over entire viewport.
+   Invisible by default; toggled to is-open via JS openProjectModal() */
+.project-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  /* Hidden by default: opacity and pointer-events prevent interaction */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Semi-transparent blurred backdrop — clicking it closes the modal */
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.68);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+}
+
+/* The white/dark modal panel itself */
+.modal-panel {
+  position: relative;
+  z-index: 1;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-color);
+  border-radius: 20px;
+  max-width: 720px;
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  box-shadow: 0 32px 64px rgba(0,0,0,0.4), 0 0 0 1px var(--border-color);
+  /* Entry animation — slides in from below on open */
+  transform: translateY(24px) scale(0.97);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Active/open state — triggered by JS adding is-open to .project-modal */
+.project-modal.is-open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.project-modal.is-open .modal-panel {
+  transform: translateY(0) scale(1);
+}
+
+/* Close button in the corner */
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  z-index: 2;
+}
+
+.modal-close-btn:hover {
+  background: rgba(239,68,68,0.15);
+  border-color: rgba(239,68,68,0.5);
+  color: #ef4444;
+  transform: rotate(90deg);
+}
+
+/* Modal thumbnail image — full width, fixed aspect */
+.modal-thumb-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+}
+
+.modal-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Modal content area with padding */
+.modal-content {
+  padding: 1.75rem 2rem 2rem;
+}
+
+.modal-category {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.28rem 0.75rem;
+  border-radius: 999px;
+  display: inline-block;
+  margin-bottom: 0.9rem;
+  letter-spacing: 0.04em;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.85rem;
+  line-height: 1.25;
+  color: var(--text-primary);
+}
+
+.modal-overview {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+}
+
+/* Key highlights list */
+.modal-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.modal-highlight-item {
+  font-size: 0.85rem;
+  font-family: 'Fira Code', monospace;
+  padding: 0.6rem 0.85rem;
+  border-radius: 10px;
+  background: rgba(99,102,241,0.06);
+  border: 1px solid rgba(99,102,241,0.14);
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.modal-tech-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Lock body scroll when a modal is open */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   13. VIDEO HIGHLIGHT SECTION
+   -------------------------------------------------------------------------- */
+
+.video-section {
+  background: transparent;
+}
+
+/* Outer wrapper with pixel-box aesthetic */
+.video-outer-wrap {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Pixel art title bar mimicking a retro media player HUD */
+.video-title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 1rem;
+  background: var(--bg-secondary);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.video-bar-label {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  color: var(--accent-primary);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* Traffic light dots */
+.video-bar-dots { display: flex; gap: 0.4rem; }
+.vdot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.vdot-red    { background: #ef4444; }
+.vdot-yellow { background: #f59e0b; }
+.vdot-green  { background: #22c55e; }
+
+/* Responsive 16:9 wrapper — uses aspect-ratio for modern browsers */
+.video-responsive-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;  /* maintains ratio without padding-top hack */
+  position: relative;
+  background: #000;
+}
+
+/* Video element fills the wrapper completely */
+.portfolio-video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+  cursor: pointer;
+}
+
+/* Video caption below the player */
+.video-caption {
+  padding: 0.85rem 1.25rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+}
+
+.caption-icon {
+  flex-shrink: 0;
+  font-size: 1.1rem;
+  margin-top: 0.05rem;
+}
+
+/* --------------------------------------------------------------------------
+   14. FOOTER — Social Icons, Quick Nav, Brand
+   -------------------------------------------------------------------------- */
+
+.site-footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  padding: 3rem 0 2rem;
+  position: relative;
+}
+
+/* Optional scanline effect on footer */
+.site-footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0,0,0,0.02) 3px,
+    rgba(0,0,0,0.02) 4px
+  );
+  pointer-events: none;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Brand row */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.footer-logo {
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.footer-logo:hover {
+  transform: scale(1.04);
+}
+
+.footer-tagline {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+/* Middle: nav + socials */
+.footer-middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Quick navigation links */
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  justify-content: center;
+}
+
+.footer-link {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.footer-link:hover {
+  color: var(--accent-primary);
+  transform: translateY(-1px);
+}
+
+/* ── Social icon row ── */
+/* Each anchor is a flex container with an SVG icon and a text label.
+   The label is visible on desktop; hidden on mobile for clean icon-only row. */
+.footer-socials {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-social-link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 12px;
+  border: 1.5px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  text-decoration: none;
+  /* Smooth hover elevation + color shift */
+  transition:
+    transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.footer-social-link:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  background: rgba(99,102,241,0.06);
+  box-shadow: 0 8px 20px var(--accent-glow);
+}
+
+.footer-social-link:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 3px;
+}
+
+.social-icon {
+  width: 22px;
+  height: 22px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.social-label {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* Footer bottom row */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer-copyright {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.footer-back-top {
+  font-size: 0.78rem;
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------
+   15. SCROLL-REVEAL ANIMATION SYSTEM
+   -------------------------------------------------------------------------- */
+
+/* Base state: invisible, slightly shifted down.
+   Transition kicks in when .is-visible is added by IntersectionObserver */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered reveal for child items — add delay via inline style or nth-child */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.reveal-stagger.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0ms; }
+.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 80ms; }
+.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 160ms; }
+.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 240ms; }
+.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 320ms; }
+
+/* General micro-animation utilities */
+@keyframes floatUpDown {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
+
+/* Pulse glow for status dots and interactive elements */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 var(--accent-glow); }
+  50%       { box-shadow: 0 0 0 8px transparent; }
+}
+
+.status-dot {
+  animation: pulseGlow 2s infinite;
+}
+
+/* --------------------------------------------------------------------------
+   16. ENHANCED RESPONSIVE DESIGN
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .modal-panel {
+    max-width: 95vw;
+  }
+
+  .modal-content {
+    padding: 1.25rem 1.25rem 1.5rem;
+  }
+
+  .modal-title {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-filter-bar {
+    gap: 0.45rem;
+  }
+
+  .proj-filter-btn {
+    font-size: 0.72rem;
+    padding: 0.35rem 0.85rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  /* Footer social labels hidden on very small screens */
+  .social-label {
+    display: none;
+  }
+
+  .footer-social-link {
+    padding: 0.55rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-middle {
+    gap: 1rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   12. EDUCATION SECTION
+   -------------------------------------------------------------------------- */
+
+.education-grid {
+  display: grid;
+  /* Avoid fixed minimum tracks causing horizontal scroll on narrow phones. */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 2rem;
+}
+
+.education-card {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: var(--transition);
+}
+
+.education-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.edu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.edu-period {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+  color: var(--accent-primary);
+}
+
+.edu-degree {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.edu-school {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.edu-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+.edu-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   13. CHAT SECTION (INTERACTIVE PIXEL AI TERMINAL)
+   -------------------------------------------------------------------------- */
+
+.chat-terminal-container {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chat-terminal-container .dialog-title-bar {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0;
+}
+
+.chat-terminal-body {
+  min-height: 240px;
+  max-height: 380px;
+  overflow-y: auto;
+  padding: 1.5rem;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.95rem;
+  scrollbar-width: thin;
+}
+
+.chat-message {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.bot-message {
+  background: var(--bg-secondary);
+  border-left: 3px solid var(--pixel-green);
+}
+
+.user-message {
+  background: var(--bg-card);
+  border-left: 3px solid var(--accent-primary);
+  align-self: flex-end;
+  max-width: 85%;
+}
+
+.chat-author {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--pixel-accent);
+}
+
+.bot-message .chat-author {
+  color: var(--pixel-green);
+}
+
+.user-message .chat-author {
+  color: var(--pixel-gold);
+}
+
+.chat-text {
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.chat-typing .chat-text {
+  color: var(--text-muted);
+  animation: chatTyping 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes chatTyping {
+  to { opacity: 0.45; }
+}
+
+.chat-quick-prompts {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.quick-prompts-label {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.chat-pill {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  padding: 0.4rem 0.65rem;
+  font-size: 0.8rem;
+}
+
+.chat-pill:hover {
+  background: var(--pixel-accent);
+  color: #ffffff;
+}
+
+.chat-input-row {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-surface);
+}
+
+.pixel-chat-input {
+  flex-grow: 1;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.95rem;
+  padding: 0.7rem 1rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  color: var(--text-primary);
+  outline: none;
+  box-shadow: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pixel-chat-input:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+/* --------------------------------------------------------------------------
+   14. CONTACT SECTION
+   -------------------------------------------------------------------------- */
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+}
+
+.contact-intro {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact-details-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-details-list li a {
+  color: var(--accent-primary);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--bg-secondary);
+  border: 2px solid var(--pixel-border);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.contact-form-response {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.contact-form-status {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.contact-email-draft {
+  color: var(--accent-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.contact-form-status[hidden],
+.contact-email-draft[hidden] {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   15. FOOTER
+   -------------------------------------------------------------------------- */
+
+.site-footer {
+  margin-top: auto;
+  padding: 2.5rem 0;
+  background: var(--bg-secondary);
+  border-top: 4px solid var(--pixel-border);
+}
+
+.footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.footer-copyright {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.footer-nav .footer-link {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.footer-nav .footer-link:hover {
+  color: var(--accent-primary);
+}
+
+.footer-socials {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   16. RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  body {
+    padding-left: 0;
+  }
+
+  body.sidebar-locked {
+    overflow: hidden;
+  }
+
+  .mobile-top-bar {
+    display: flex;
+  }
+
+  .sidebar-backdrop {
+    display: block;
+  }
+
+  .sidebar-close-btn {
+    display: inline-block;
+  }
+
+  .pixel-sidebar {
+    transform: translateX(-100%);
+    box-shadow: 10px 0px 25px rgba(0, 0, 0, 0.5);
+  }
+
+  .pixel-sidebar.is-open {
+    transform: translateX(0);
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .hero-character-card {
+    max-width: 440px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .about-clean-grid,
+  .about-grid,
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .about-profile-card {
+    max-width: 440px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .contact-wrapper {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-greeting {
+    font-size: 1.1rem;
+  }
+
+  .hero-name-glitch {
+    font-size: 1.6rem;
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+  }
+
+  .dialog-body {
+    padding: 1.5rem;
+  }
+
+  .stat-row {
+    grid-template-columns: 110px 1fr 55px;
+    font-size: 0.5rem;
+  }
+
+  .skills-panels-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .inventory-slots-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  .chat-input-row {
+    flex-direction: column;
+  }
+
+  .timeline-spine {
+    padding-left: 2rem;
+  }
+
+  .timeline-spine::before {
+    left: 8px;
+  }
+
+  .timeline-node {
+    left: -2.35rem;
+    width: 24px;
+    height: 24px;
+    top: 1.25rem;
+  }
+
+  .node-inner-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .timeline-event-card {
+    padding: 1.25rem 1.25rem;
+    border-radius: 14px;
+  }
+
+  .event-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+/* Collapse minimum-width grids on narrow phones to prevent horizontal scrolling. */
+@media (max-width: 400px) {
+  .certificates-grid,
+  .education-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Keep hover and entrance motion optional for visitors who request less animation. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

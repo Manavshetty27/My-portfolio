@@ -1,0 +1,2123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Manav - Software Engineer specializing in full-stack web applications, scalable architectures, and interactive digital experiences.">
+  <meta name="author" content="Manav - Software Engineer">
+  <title>Manav | Software Engineer Portfolio</title>
+
+  <!-- Google Fonts: Modern UI typefaces with a pixel-style wordmark accent -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet Link -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========================================================= -->
+  <!-- MOBILE TOP BAR (Visible on mobile/tablet viewports)       -->
+  <!-- ========================================================= -->
+  <header class="mobile-top-bar" id="mobile-header">
+    <a href="#hero" class="mobile-logo pixel-logo" aria-label="Home">
+      <span class="pixel-brand-icon">👾</span>
+      <span class="logo-code">&lt;</span>MANAV<span class="logo-code">/&gt;</span>
+    </a>
+    <div class="mobile-actions">
+      <!-- Mobile Theme Toggle -->
+      <button 
+        id="mobile-theme-toggle" 
+        class="pixel-toggle-btn pixel-btn-sm" 
+        type="button" 
+        aria-label="Toggle dark and light theme"
+        title="Toggle Day / Night Mode"
+      >
+        <span class="theme-icon theme-icon-sun" aria-hidden="true">☼</span>
+        <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
+      </button>
+      <!-- Mobile Menu Hamburger Trigger -->
+      <button 
+        id="mobile-menu-open-btn" 
+        class="pixel-btn pixel-btn-sm mobile-menu-trigger" 
+        type="button" 
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="sidebar-nav"
+      >
+        [ ☰ MENU ]
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Backdrop Overlay -->
+  <div class="sidebar-backdrop" id="sidebar-backdrop" aria-hidden="true"></div>
+
+  <!-- ========================================================= -->
+  <!-- VERTICAL NAVIGATION BAR (LEFT SIDEBAR)                    -->
+  <!-- ========================================================= -->
+  <aside class="pixel-sidebar" id="sidebar-nav" aria-label="Main Navigation">
+    <div class="sidebar-inner">
+
+      <!-- Sidebar Top: Brand Logo & Player Status HUD -->
+      <div class="sidebar-header">
+        <div class="sidebar-title-bar">
+          <span class="sidebar-sys-title">SYS_NAV: v2.0</span>
+          <!-- Mobile Drawer Close Button -->
+          <button 
+            id="mobile-menu-close-btn" 
+            class="sidebar-close-btn" 
+            type="button" 
+            aria-label="Close navigation menu"
+          >✕</button>
+        </div>
+
+        <a href="#hero" class="sidebar-logo pixel-logo" aria-label="Home">
+          <span class="pixel-brand-icon">👾</span>
+          <span class="logo-code">&lt;</span>MANAV<span class="logo-code">/&gt;</span>
+        </a>
+
+        <div class="sidebar-player-badge">
+          <span class="status-dot"></span>
+          <span class="player-hud-text">LVL 99 DEV // ONLINE</span>
+        </div>
+      </div>
+
+      <!-- Navigation Links: Home, About Me, Skills, Certificates, Projects, Education, Chat, Contact -->
+      <nav class="sidebar-nav" aria-label="Primary Links">
+        <ul class="sidebar-nav-list" role="list">
+          <li class="sidebar-nav-item">
+            <a href="#hero" class="sidebar-nav-link is-active" data-section="hero">
+              <span class="nav-cursor" aria-hidden="true">▶</span>
+              <span class="nav-icon" aria-hidden="true">🏠</span>
+              <span class="nav-text">Home</span>
+            </a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a href="#about" class="sidebar-nav-link" data-section="about">
+              <span class="nav-cursor" aria-hidden="true">▶</span>
+              <span class="nav-icon" aria-hidden="true">👤</span>
+              <span class="nav-text">About Me</span>
+            </a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a href="#skills" class="sidebar-nav-link" data-section="skills">
+              <span class="nav-cursor" aria-hidden="true">▶</span>
+              <span class="nav-icon" aria-hidden="true">⚡</span>
+              <span class="nav-text">Skills</span>
+            </a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a href="#certificates" class="sidebar-nav-link" data-section="certificates">
+              <span class="nav-cursor" aria-hidden="true">▶</span>
+              <span class="nav-icon" aria-hidden="true">📜</span>
+              <span class="nav-text">Certificate</span>
+            </a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a href="#projects" class="sidebar-nav-link" data-section="projects">
+              <span class="nav-cursor" aria-hidden="true">▶</span>
+              <span class="nav-icon" aria-hidden="true">🕹️</span>
+              <span class="nav-text">Projects</span>
+            </a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a href="#education" class="sidebar-nav-link" data-section="education">
+              <span class="nav-cursor" aria-hidden="true">▶</span>
+              <span class="nav-icon" aria-hidden="true">🎓</span>
+              <span class="nav-text">Education</span>
+            </a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a href="#chat" class="sidebar-nav-link" data-section="chat">
+              <span class="nav-cursor" aria-hidden="true">▶</span>
+              <span class="nav-icon" aria-hidden="true">💬</span>
+              <span class="nav-text">Chat</span>
+            </a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a href="#contact" class="sidebar-nav-link" data-section="contact">
+              <span class="nav-cursor" aria-hidden="true">▶</span>
+              <span class="nav-icon" aria-hidden="true">✉️</span>
+              <span class="nav-text">Contact</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Sidebar Bottom: Night Mode Toggle & Status -->
+      <div class="sidebar-footer">
+        <div class="sidebar-theme-wrapper">
+          <span class="theme-label-small">MODE:</span>
+          <button 
+            id="theme-toggle" 
+            class="pixel-toggle-btn sidebar-toggle-btn" 
+            type="button" 
+            aria-label="Toggle dark and light theme"
+            aria-pressed="false"
+            title="Toggle Day / Night Mode"
+          >
+            <!-- Sun Icon for Dark Mode -->
+            <span class="theme-icon theme-icon-sun" aria-hidden="true">☼ DAY</span>
+            <!-- Moon Icon for Light Mode -->
+            <span class="theme-icon theme-icon-moon" aria-hidden="true">☾ NIGHT</span>
+          </button>
+        </div>
+
+        <div class="sidebar-status-box">
+          <span class="sidebar-status-text">● QUEST: AVAILABLE</span>
+        </div>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- ========================================================= -->
+  <!-- MAIN CONTENT CONTAINER                                   -->
+  <!-- ========================================================= -->
+  <main id="main-content">
+
+    <!-- ======================================================= -->
+    <!-- 1. HERO SECTION (PIXEL ART STYLE + BACKGROUND IMAGE)    -->
+    <!-- ======================================================= -->
+    <section class="section hero-section pixel-hero" id="hero" aria-labelledby="hero-title">
+      <!-- Retro CRT / Scanline Texture Overlay -->
+      <div class="pixel-scanlines" aria-hidden="true"></div>
+
+      <div class="container hero-container">
+        
+        <!-- Retro Pixel Dialogue / Quest Window -->
+        <div class="pixel-box hero-dialog-box">
+          <!-- Window Header / Title Bar -->
+          <div class="dialog-title-bar">
+            <span class="dialog-bar-title">▶ QUEST_LOG: PLAYER_INFO.EXE</span>
+            <div class="dialog-controls" aria-hidden="true">
+              <span class="control-btn control-min">_</span>
+              <span class="control-btn control-max">□</span>
+              <span class="control-btn control-close">✕</span>
+            </div>
+          </div>
+
+          <!-- Window Inner Content -->
+          <div class="dialog-body">
+            <!-- Retro Level & Greeting Badge -->
+            <div class="pixel-badge-group">
+              <span class="pixel-badge pixel-badge-primary">★ LVL 99 ENGINEER ★</span>
+              <span class="pixel-badge pixel-badge-status"><span class="status-dot"></span>STATUS: ONLINE</span>
+            </div>
+
+            <!-- Welcome Title -->
+            <h1 class="hero-title pixel-heading" id="hero-title">
+              <span class="hero-greeting">WELCOME, VISITOR!</span>
+              <span class="hero-name-glitch">I'M MANAV</span>
+            </h1>
+
+            <!-- Welcome Tagline -->
+            <p class="hero-subtitle-role">SOFTWARE ENGINEER &amp; FULL-STACK DEVELOPER</p>
+            <p class="hero-tagline pixel-text">
+              Building scalable web architectures, resilient distributed microservices, and pixel-perfect interactive digital worlds. Ready to collaborate and solve hard problems.
+            </p>
+
+            <!-- Pixel Art Call to Action Buttons -->
+            <div class="hero-actions pixel-btn-group">
+              <a href="#projects" class="pixel-btn pixel-btn-action" id="cta-view-work">
+                <span class="pixel-btn-icon">▶</span> START QUEST
+              </a>
+              <a href="#contact" class="pixel-btn pixel-btn-secondary" id="cta-contact-me">
+                <span class="pixel-btn-icon">✉</span> SEND PING
+              </a>
+              <a href="Manav_resume.pdf" class="pixel-btn pixel-btn-outline" id="cta-resume" download>
+                <span class="pixel-btn-icon">💾</span> RESUME.PDF
+              </a>
+            </div>
+
+            <!-- Pixel Social Links -->
+            <div class="hero-socials pixel-social-cluster" aria-label="Social Profiles">
+              <a href="https://github.com/Manavshetty27" class="pixel-social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                [ GITHUB ]
+              </a>
+              <a href="https://www.linkedin.com/in/manav-devang-cm" class="pixel-social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                [ LINKEDIN ]
+              </a>
+              <a href="https://twitter.com/" class="pixel-social-link" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X">
+                [ X / TWITTER ]
+              </a>
+              <a href="mailto:manav27cm@gmail.com" class="pixel-social-link" aria-label="Email">
+                [ EMAIL ]
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Retro Character Profile Card -->
+        <aside class="pixel-box hero-character-card" aria-label="Character Stats">
+          <div class="character-header">
+            <span class="character-slot-label">PLAYER AVATAR</span>
+            <span class="character-class-tag">CLASS: DEV</span>
+          </div>
+
+          <!-- Character Portrait with Pixel Bevel Frame -->
+          <div class="character-portrait-frame">
+            <img 
+              src="WhatsApp Image 2026-10-05 at 9.23.41 PM.jpeg" 
+              alt="Portrait of Manav, Software Engineer" 
+              class="character-portrait-img"
+              id="hero-avatar"
+            >
+            <div class="portrait-pixel-glare" aria-hidden="true"></div>
+          </div>
+
+          <!-- 8-Bit RPG Stats HUD -->
+          <div class="character-stats-hud">
+            <div class="stat-row">
+              <span class="stat-name">HP (CODE QUALITY):</span>
+              <div class="pixel-progress-bar hp-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                <div class="pixel-progress-fill hp-fill" style="width: 100%;"></div>
+              </div>
+              <span class="stat-val">100/100</span>
+            </div>
+
+            <div class="stat-row">
+              <span class="stat-name">MP (CREATIVITY):</span>
+              <div class="pixel-progress-bar mp-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                <div class="pixel-progress-fill mp-fill" style="width: 100%;"></div>
+              </div>
+              <span class="stat-val">100/100</span>
+            </div>
+
+            <div class="character-meta-grid">
+              <div class="meta-item">
+                <span class="meta-label">EXP:</span>
+                <span class="meta-value">3+ YRS</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">SPECIAL:</span>
+                <span class="meta-value">FULL STACK</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">LOCATION:</span>
+                <span class="meta-value">REMOTE / ON-SITE</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">PARTY:</span>
+                <span class="meta-value">OPEN TO WORK</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Blinking Retro Press Start Prompt -->
+          <div class="pixel-press-start">
+            <span class="blinking-arrow">&#9654;</span> PRESS ANY LINK TO PLAY
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ======================================================= -->
+    <!-- 2. ABOUT SECTION                                        -->
+    <!-- ======================================================= -->
+    <section class="section about-section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        
+        <div class="section-header">
+          <p class="section-kicker">Get To Know Me</p>
+          <h2 class="section-title" id="about-title">About Me</h2>
+        </div>
+
+        <div class="about-clean-grid">
+
+          <!-- Left Column: Professional Circular Portrait & Quick Profile Card -->
+          <div class="about-profile-card">
+            <!-- Circular Portrait Frame -->
+            <div class="circular-portrait-wrapper">
+              <div class="circular-portrait-ring">
+                <img
+                  src="WhatsApp Image 2026-10-05 at 9.23.41 PM.jpeg"
+                  alt="Professional portrait of Manav"
+                  class="circular-portrait-img"
+                >
+              </div>
+              <span class="portrait-status-badge" title="Status: Active">
+                <span class="status-pulse-dot" aria-hidden="true"></span> Available for Hire
+              </span>
+            </div>
+
+            <!-- Profile Summary & Meta Details -->
+            <div class="profile-quick-meta">
+              <h3 class="profile-name">Manav</h3>
+              <p class="profile-role">Full-Stack Software Engineer</p>
+
+              <ul class="profile-details-list" role="list">
+                <li class="profile-detail-item">
+                  <span class="detail-label">Experience:</span>
+                  <span class="detail-value">3+ Years</span>
+                </li>
+                <li class="profile-detail-item">
+                  <span class="detail-label">Location:</span>
+                  <span class="detail-value">Remote &bull; Worldwide</span>
+                </li>
+                <li class="profile-detail-item">
+                  <span class="detail-label">Education:</span>
+                  <span class="detail-value">B.Tech in CS &amp; Eng</span>
+                </li>
+                <li class="profile-detail-item">
+                  <span class="detail-label">Specialty:</span>
+                  <span class="detail-value">Web &amp; Distributed Systems</span>
+                </li>
+              </ul>
+
+              <!-- Action Links -->
+              <div class="profile-cta-group">
+                <a href="Manav_resume.pdf" class="btn btn-primary btn-block" download id="about-download-cv">
+                  Download CV &darr;
+                </a>
+                <a href="#contact" class="btn btn-secondary btn-block" id="about-contact-btn">
+                  Let's Connect &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Narrative Bio, Career Highlights & Personal Interests -->
+          <div class="about-content-column">
+
+            <!-- Short Bio -->
+            <div class="about-bio-block">
+              <h3 class="about-subheading">Engineering Scalable, Human-Centered Software</h3>
+              <p class="about-lead-text">
+                Hello! I am Manav, a dedicated Software Engineer driven by turning complex technical challenges into clean, accessible, and high-performance digital experiences. With a rigorous computer science foundation and hands-on full-stack engineering expertise, I architect modern web applications, scalable backend microservices, and resilient cloud workflows.
+              </p>
+              <p class="about-secondary-text">
+                My engineering approach is rooted in code craftsmanship, continuous learning, and pragmatic systems design. I believe software should be as robust and maintainable behind the scenes as it is intuitive and frictionless for users on the surface.
+              </p>
+            </div>
+
+            <!-- Career Highlights -->
+            <div class="about-highlights-section">
+              <h4 class="highlights-title">Career Highlights &amp; Milestones</h4>
+              <div class="highlights-grid">
+                
+                <div class="highlight-item">
+                  <div class="highlight-icon" aria-hidden="true">🚀</div>
+                  <div class="highlight-text-content">
+                    <h5 class="highlight-heading">Full-Stack Architecture</h5>
+                    <p class="highlight-desc">
+                      Built production web applications and modern responsive interfaces leveraging React, TypeScript, Node.js, and high-performance REST/GraphQL APIs.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="highlight-item">
+                  <div class="highlight-icon" aria-hidden="true">⚡</div>
+                  <div class="highlight-text-content">
+                    <h5 class="highlight-heading">System Scalability &amp; APIs</h5>
+                    <p class="highlight-desc">
+                      Engineered fault-tolerant microservices, optimized database query execution plans in PostgreSQL and MongoDB, and maintained 99.9% application uptime.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="highlight-item">
+                  <div class="highlight-icon" aria-hidden="true">🛠️</div>
+                  <div class="highlight-text-content">
+                    <h5 class="highlight-heading">Cloud &amp; DevOps Automation</h5>
+                    <p class="highlight-desc">
+                      Automated testing suites and containerized deployments using Docker, CI/CD pipelines, and AWS/GCP cloud environments for reliable, frictionless releases.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Personal Interests -->
+            <div class="about-interests-section">
+              <h4 class="interests-title">Beyond the Code // Personal Interests</h4>
+              <p class="interests-intro">
+                When I am away from the compiler and terminal, I enjoy creative pursuits that keep curiosity and perspective sharp:
+              </p>
+              <div class="interests-tags-cluster">
+                <span class="interest-tag">🕹️ Retro Tech &amp; Pixel Art</span>
+                <span class="interest-tag">📚 Distributed Systems Architecture</span>
+                <span class="interest-tag">☕ Specialty Espresso Brewing</span>
+                <span class="interest-tag">🚴 Long-Distance Cycling</span>
+                <span class="interest-tag">🌐 Open Source Communities</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================= -->
+    <!-- 3. SKILLS SECTION                                       -->
+    <!-- ======================================================= -->
+    <!-- ======================================================= -->
+    <!-- 3. SKILLS SECTION (PIXEL ART PROGRESS BARS & TOOLBELT)   -->
+    <!-- ======================================================= -->
+    <section class="section skills-section" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        
+        <!-- Section Title & Retro HUD Status Bar -->
+        <div class="section-header">
+          <p class="section-kicker">Skill Tree &amp; Abilities</p>
+          <h2 class="section-title pixel-heading-sm" id="skills-title">Core Competencies</h2>
+          
+          <div class="skills-hud-banner" aria-label="Skill Tree Status">
+            <span class="hud-item"><span class="status-dot"></span>ACTIVE CLASS: FULL-STACK ARCHITECT</span>
+            <span class="hud-item">XP: 100% MAX</span>
+            <span class="hud-item">STATUS: PRODUCTION READY</span>
+          </div>
+        </div>
+
+        <!-- Interactive Category Filter Tabs -->
+        <div class="skills-filter-tabs" role="tablist" aria-label="Skills Categories">
+          <button type="button" class="pixel-tab-btn is-active" data-filter="all" role="tab" aria-selected="true">
+            [ ALL SKILLS ]
+          </button>
+          <button type="button" class="pixel-tab-btn" data-filter="languages" role="tab" aria-selected="false">
+            [ LANGUAGES ]
+          </button>
+          <button type="button" class="pixel-tab-btn" data-filter="frameworks" role="tab" aria-selected="false">
+            [ FRAMEWORKS ]
+          </button>
+          <button type="button" class="pixel-tab-btn" data-filter="cloud" role="tab" aria-selected="false">
+            [ CLOUD &amp; DEVOPS ]
+          </button>
+          <button type="button" class="pixel-tab-btn" data-filter="tools" role="tab" aria-selected="false">
+            [ TOOLS &amp; ARCH ]
+          </button>
+        </div>
+
+        <!-- Main Skills Categories Grid -->
+        <div class="skills-panels-grid">
+
+          <!-- =================================================== -->
+          <!-- Category 1: Programming Languages                   -->
+          <!-- =================================================== -->
+          <article class="pixel-box skill-panel-card" data-category="languages">
+            <div class="skill-panel-header">
+              <div class="panel-title-wrapper">
+                <span class="panel-icon" aria-hidden="true">💻</span>
+                <h3 class="panel-heading">Programming Languages</h3>
+              </div>
+              <span class="panel-rank-badge">RANK: S-TIER</span>
+            </div>
+
+            <div class="skill-bars-list">
+              <!-- Skill: TypeScript & JavaScript - Powers dynamic, type-safe frontend SPAs and scalable Node.js microservices -->
+              <div class="skill-bar-item">
+                <div class="skill-info-row">
+                  <span class="skill-name"><span class="skill-icon" aria-hidden="true">📘</span> TypeScript / JS</span>
+                  <span class="skill-level-tag">LVL 95 &bull; 95%</span>
+                </div>
+                <div class="pixel-skill-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="TypeScript and JavaScript proficiency">
+                  <div class="pixel-skill-fill fill-blue" style="width: 95%;"></div>
+                </div>
+              </div>
+
+              <!-- Skill: Python - Primary language for data pipelines, AI integrations, automated workflows, and backend microservices -->
+              <div class="skill-bar-item">
+                <div class="skill-info-row">
+                  <span class="skill-name"><span class="skill-icon" aria-hidden="true">🐍</span> Python</span>
+                  <span class="skill-level-tag">LVL 90 &bull; 90%</span>
+                </div>
+                <div class="pixel-skill-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Python proficiency">
+                  <div class="pixel-skill-fill fill-gold" style="width: 90%;"></div>
+                </div>
+              </div>
+
+              <!-- Skill: Go (Golang) - High-throughput concurrency, microservices development, and lightweight systems programming -->
+              <div class="skill-bar-item">
+                <div class="skill-info-row">
+                  <span class="skill-name"><span class="skill-icon" aria-hidden="true">🐹</span> Go (Golang)</span>
+                  <span class="skill-level-tag">LVL 82 &bull; 82%</span>
+                </div>
+                <div class="pixel-skill-bar" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" aria-label="Go programming proficiency">
+                  <div class="pixel-skill-fill fill-cyan" style="width: 82%;"></div>
+                </div>
+              </div>
+
+              <!-- Skill: SQL (PostgreSQL & MySQL) - Relational data persistence, indexed query optimization, and complex schema modeling -->
+              <div class="skill-bar-item">
+                <div class="skill-info-row">
+                  <span class="skill-name"><span class="skill-icon" aria-hidden="true">🗄️</span> SQL (Postgres / MySQL)</span>
+                  <span class="skill-level-tag">LVL 88 &bull; 88%</span>
+                </div>
+                <div class="pixel-skill-bar" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" aria-label="SQL relational databases proficiency">
+                  <div class="pixel-skill-fill fill-green" style="width: 88%;"></div>
+                </div>
+              </div>
+
+              <!-- Skill: HTML5 & Modern CSS3 - Pixel-perfect semantic structure, responsive layouts, CSS variables, and accessibility -->
+              <div class="skill-bar-item">
+                <div class="skill-info-row">
+                  <span class="skill-name"><span class="skill-icon" aria-hidden="true">🎨</span> HTML5 &amp; Modern CSS3</span>
+                  <span class="skill-level-tag">LVL 96 &bull; 96%</span>
+                </div>
+                <div class="pixel-skill-bar" role="progressbar" aria-valuenow="96" aria-valuemin="0" aria-valuemax="100" aria-label="HTML5 and CSS3 proficiency">
+                  <div class="pixel-skill-fill fill-purple" style="width: 96%;"></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- =================================================== -->
+          <!-- Category 2: Frameworks & Web Technologies          -->
+          <!-- =================================================== -->
+          <article class="pixel-box skill-panel-card" data-category="frameworks">
+            <div class="skill-panel-header">
+              <div class="panel-title-wrapper">
+                <span class="panel-icon" aria-hidden="true">⚛️</span>
+                <h3 class="panel-heading">Frameworks &amp; Web Tech</h3>
+              </div>
+              <span class="panel-rank-badge">RANK: S-TIER</span>
+            </div>
+
+            <div class="skill-bars-list">
+              <!-- Skill: React.js & Next.js - Reactive component systems, server-side rendering (SSR), and modern client performance -->
+              <div class="skill-bar-item">
+                <div class="skill-info-row">
+                  <span class="skill-name"><span class="skill-icon" aria-hidden="true">⚛️</span> React.js &amp; Next.js</span>
+                  <span class="skill-level-tag">LVL 94 &bull; 94%</span>
+                </div>
+                <div class="pixel-skill-bar" role="progressbar" aria-valuenow="94" aria-valuemin="0" aria-valuemax="100" aria-label="React and Next.js proficiency">
+                  <div class="pixel-skill-fill fill-cyan" style="width: 94%;"></div>
+                </div>
+              </div>
+
+              <!-- Skill: Node.js & Express - High-speed asynchronous event-driven server runtime, middleware, and backend API routing -->
+              <div class="skill-bar-item">
+                <div class="skill-info-row">
+                  <span class="skill-name"><span class="skill-icon" aria-hidden="true">🟢</span> Node.js &amp; Express</span>
+                  <span class="skill-level-tag">LVL 92 &bull; 92%</span>
+                </div>
+                <div class="pixel-skill-bar" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100" aria-label="Node.js and Express proficiency">
+                  <div class="pixel-skill-fill fill-green" style="width: 92%;"></div>
+                </div>
+              </div>
+
+              <!-- Skill: FastAPI & Django - Python enterprise web frameworks, automatic OpenAPI schemas, and async request concurrency -->
+              <div class="skill-bar-item">
+                <div class="skill-info-row">
+                  <span class="skill-name"><span class="skill-icon" aria-hidden="true">🚀</span> FastAPI &amp; Django</span>
+                  <span class="skill-level-tag">LVL 85 &bull; 85%</span>
+                </div>
+                <div class="pixel-skill-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="FastAPI and Django proficiency">
+                  <div class="pixel-skill-fill fill-blue" style="width: 85%;"></div>
+                </div>
+              </div>
+
+              <!-- Skill: RESTful APIs & GraphQL - Resilient contract design, token authentication (JWT/OAuth), and graph querying -->
+              <div class="skill-bar-item">
+                <div class="skill-info-row">
+                  <span class="skill-name"><span class="skill-icon" aria-hidden="true">🔌</span> REST &amp; GraphQL APIs</span>
+                  <span class="skill-level-tag">LVL 90 &bull; 90%</span>
+                </div>
+                <div class="pixel-skill-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="RESTful APIs and GraphQL proficiency">
+                  <div class="pixel-skill-fill fill-purple" style="width: 90%;"></div>
+                </div>
+              </div>
+
+              <!-- Skill: TailwindCSS & Responsive Design - Scalable utility design systems, customized tokens, and smooth responsive UX -->
+              <div class="skill-bar-item">
+                <div class="skill-info-row">
+                  <span class="skill-name"><span class="skill-icon" aria-hidden="true">💠</span> TailwindCSS &amp; UI</span>
+                  <span class="skill-level-tag">LVL 92 &bull; 92%</span>
+                </div>
+                <div class="pixel-skill-bar" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100" aria-label="TailwindCSS proficiency">
+                  <div class="pixel-skill-fill fill-gold" style="width: 92%;"></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- =================================================== -->
+          <!-- Category 3: Cloud, DevOps & Databases               -->
+          <!-- =================================================== -->
+          <article class="pixel-box skill-panel-card" data-category="cloud">
+            <div class="skill-panel-header">
+              <div class="panel-title-wrapper">
+                <span class="panel-icon" aria-hidden="true">☁️</span>
+                <h3 class="panel-heading">Cloud &amp; DevOps</h3>
+              </div>
+              <span class="panel-rank-badge">RANK: A-TIER</span>
+            </div>
+
+            <div class="skill-bars-list">
+              <!-- Skill: Docker & Containers - Isolated multi-stage application builds, Docker Compose, and zero-drift containerization -->
+              <div class="skill-bar-item">
+                <div class="skill-info-row">
+                  <span class="skill-name"><span class="skill-icon" aria-hidden="true">🐳</span> Docker &amp; Containers</span>
+                  <span class="skill-level-tag">LVL 88 &bull; 88%</span>
+                </div>
+                <div class="pixel-skill-bar" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" aria-label="Docker proficiency">
+                  <div class="pixel-skill-fill fill-blue" style="width: 88%;"></div>
+                </div>
+              </div>
+
+              <!-- Skill: Amazon Web Services (AWS) - Cloud deployment architectures utilizing EC2, S3, ECS, Lambda, RDS, and CloudFront -->
+              <div class="skill-bar-item">
+                <div class="skill-info-row">
+                  <span class="skill-name"><span class="skill-icon" aria-hidden="true">☁️</span> Amazon Web Services (AWS)</span>
+                  <span class="skill-level-tag">LVL 85 &bull; 85%</span>
+                </div>
+                <div class="pixel-skill-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="AWS proficiency">
+                  <div class="pixel-skill-fill fill-gold" style="width: 85%;"></div>
+                </div>
+              </div>
+
+              <!-- Skill: Kubernetes & Orchestration - Declarative pod scheduling, cluster ingress routing, and service availability -->
+              <div class="skill-bar-item">
+                <div class="skill-info-row">
+                  <span class="skill-name"><span class="skill-icon" aria-hidden="true">⚓</span> Kubernetes (K8s)</span>
+                  <span class="skill-level-tag">LVL 80 &bull; 80%</span>
+                </div>
+                <div class="pixel-skill-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="Kubernetes proficiency">
+                  <div class="pixel-skill-fill fill-cyan" style="width: 80%;"></div>
+                </div>
+              </div>
+
+              <!-- Skill: Redis - High-speed in-memory key-value caching, distributed session state, and transactional queues -->
+              <div class="skill-bar-item">
+                <div class="skill-info-row">
+                  <span class="skill-name"><span class="skill-icon" aria-hidden="true">⚡</span> Redis In-Memory Cache</span>
+                  <span class="skill-level-tag">LVL 86 &bull; 86%</span>
+                </div>
+                <div class="pixel-skill-bar" role="progressbar" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100" aria-label="Redis caching proficiency">
+                  <div class="pixel-skill-fill fill-purple" style="width: 86%;"></div>
+                </div>
+              </div>
+
+              <!-- Skill: MongoDB & NoSQL - Document-based data modeling, aggregation pipelines, and high-velocity horizontal scaling -->
+              <div class="skill-bar-item">
+                <div class="skill-info-row">
+                  <span class="skill-name"><span class="skill-icon" aria-hidden="true">🍃</span> MongoDB (NoSQL)</span>
+                  <span class="skill-level-tag">LVL 84 &bull; 84%</span>
+                </div>
+                <div class="pixel-skill-bar" role="progressbar" aria-valuenow="84" aria-valuemin="0" aria-valuemax="100" aria-label="MongoDB proficiency">
+                  <div class="pixel-skill-fill fill-green" style="width: 84%;"></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- =================================================== -->
+          <!-- Category 4: Tools & Architecture Practices          -->
+          <!-- =================================================== -->
+          <article class="pixel-box skill-panel-card" data-category="tools">
+            <div class="skill-panel-header">
+              <div class="panel-title-wrapper">
+                <span class="panel-icon" aria-hidden="true">🛠️</span>
+                <h3 class="panel-heading">Tools &amp; Architecture</h3>
+              </div>
+              <span class="panel-rank-badge">RANK: S-TIER</span>
+            </div>
+
+            <div class="skill-bars-list">
+              <!-- Skill: Git & GitHub - Advanced branch management, pull request reviews, git workflows, and automated Actions -->
+              <div class="skill-bar-item">
+                <div class="skill-info-row">
+                  <span class="skill-name"><span class="skill-icon" aria-hidden="true">🐙</span> Git &amp; GitHub</span>
+                  <span class="skill-level-tag">LVL 95 &bull; 95%</span>
+                </div>
+                <div class="pixel-skill-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="Git and GitHub proficiency">
+                  <div class="pixel-skill-fill fill-purple" style="width: 95%;"></div>
+                </div>
+              </div>
+
+              <!-- Skill: System Design & Microservices - Decoupled distributed architecture, event streaming, and horizontal reliability -->
+              <div class="skill-bar-item">
+                <div class="skill-info-row">
+                  <span class="skill-name"><span class="skill-icon" aria-hidden="true">🏛️</span> System Design &amp; Arch</span>
+                  <span class="skill-level-tag">LVL 86 &bull; 86%</span>
+                </div>
+                <div class="pixel-skill-bar" role="progressbar" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100" aria-label="System design proficiency">
+                  <div class="pixel-skill-fill fill-gold" style="width: 86%;"></div>
+                </div>
+              </div>
+
+              <!-- Skill: CI/CD Pipelines - Automated continuous integration, static analysis, container delivery, and deployments -->
+              <div class="skill-bar-item">
+                <div class="skill-info-row">
+                  <span class="skill-name"><span class="skill-icon" aria-hidden="true">🔄</span> CI/CD Pipelines</span>
+                  <span class="skill-level-tag">LVL 88 &bull; 88%</span>
+                </div>
+                <div class="pixel-skill-bar" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" aria-label="CI/CD automation proficiency">
+                  <div class="pixel-skill-fill fill-green" style="width: 88%;"></div>
+                </div>
+              </div>
+
+              <!-- Skill: Automated Testing - Comprehensive unit, integration, and end-to-end testing with Jest, Vitest, and PyTest -->
+              <div class="skill-bar-item">
+                <div class="skill-info-row">
+                  <span class="skill-name"><span class="skill-icon" aria-hidden="true">🧪</span> Testing (Jest / Vitest)</span>
+                  <span class="skill-level-tag">LVL 88 &bull; 88%</span>
+                </div>
+                <div class="pixel-skill-bar" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" aria-label="Automated testing proficiency">
+                  <div class="pixel-skill-fill fill-blue" style="width: 88%;"></div>
+                </div>
+              </div>
+
+              <!-- Skill: Linux CLI & Bash - Terminal scripting, server administration, cron scheduling, and Unix developer tools -->
+              <div class="skill-bar-item">
+                <div class="skill-info-row">
+                  <span class="skill-name"><span class="skill-icon" aria-hidden="true">🐧</span> Linux CLI &amp; Bash</span>
+                  <span class="skill-level-tag">LVL 90 &bull; 90%</span>
+                </div>
+                <div class="pixel-skill-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Linux and Bash proficiency">
+                  <div class="pixel-skill-fill fill-cyan" style="width: 90%;"></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- ===================================================== -->
+        <!-- DEVELOPER TOOLBELT & INVENTORY (STYLED LIST)          -->
+        <!-- ===================================================== -->
+        <div class="pixel-box skills-inventory-box">
+          <div class="inventory-header">
+            <span class="inventory-title">🎒 DEVELOPER TOOLBELT // QUICK INVENTORY</span>
+            <span class="inventory-subtitle">EQUIPPED DAILY DRIVERS</span>
+          </div>
+
+          <ul class="inventory-slots-grid" role="list">
+            <!-- Tool: VS Code -->
+            <li class="inventory-slot" tabindex="0">
+              <span class="slot-icon" aria-hidden="true">💻</span>
+              <span class="slot-name">VS Code</span>
+            </li>
+            <!-- Tool: Postman -->
+            <li class="inventory-slot" tabindex="0">
+              <span class="slot-icon" aria-hidden="true">📮</span>
+              <span class="slot-name">Postman</span>
+            </li>
+            <!-- Tool: Vite -->
+            <li class="inventory-slot" tabindex="0">
+              <span class="slot-icon" aria-hidden="true">⚡</span>
+              <span class="slot-name">Vite</span>
+            </li>
+            <!-- Tool: Webpack -->
+            <li class="inventory-slot" tabindex="0">
+              <span class="slot-icon" aria-hidden="true">📦</span>
+              <span class="slot-name">Webpack</span>
+            </li>
+            <!-- Tool: ESLint -->
+            <li class="inventory-slot" tabindex="0">
+              <span class="slot-icon" aria-hidden="true">✨</span>
+              <span class="slot-name">ESLint</span>
+            </li>
+            <!-- Tool: Figma -->
+            <li class="inventory-slot" tabindex="0">
+              <span class="slot-icon" aria-hidden="true">📐</span>
+              <span class="slot-name">Figma</span>
+            </li>
+            <!-- Tool: Prisma ORM -->
+            <li class="inventory-slot" tabindex="0">
+              <span class="slot-icon" aria-hidden="true">💎</span>
+              <span class="slot-name">Prisma ORM</span>
+            </li>
+            <!-- Tool: Apache Kafka -->
+            <li class="inventory-slot" tabindex="0">
+              <span class="slot-icon" aria-hidden="true">📨</span>
+              <span class="slot-name">Kafka</span>
+            </li>
+            <!-- Tool: GitHub Actions -->
+            <li class="inventory-slot" tabindex="0">
+              <span class="slot-icon" aria-hidden="true">⚙️</span>
+              <span class="slot-name">GH Actions</span>
+            </li>
+            <!-- Tool: Terraform -->
+            <li class="inventory-slot" tabindex="0">
+              <span class="slot-icon" aria-hidden="true">🏗️</span>
+              <span class="slot-name">Terraform</span>
+            </li>
+            <!-- Tool: Grafana -->
+            <li class="inventory-slot" tabindex="0">
+              <span class="slot-icon" aria-hidden="true">📊</span>
+              <span class="slot-name">Grafana</span>
+            </li>
+            <!-- Tool: pnpm & npm -->
+            <li class="inventory-slot" tabindex="0">
+              <span class="slot-icon" aria-hidden="true">🚀</span>
+              <span class="slot-name">pnpm / npm</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================= -->
+    <!-- 4. TIMELINE COMPONENT (EDUCATION & MAJOR PROJECTS)      -->
+    <!-- ======================================================= -->
+    <section class="section timeline-section" id="timeline" aria-labelledby="timeline-title">
+      <div class="container">
+        
+        <div class="section-header">
+          <p class="section-kicker">Milestones &amp; Journey</p>
+          <h2 class="section-title pixel-heading-sm" id="timeline-title">Career &amp; Project Timeline</h2>
+          <p class="section-subtitle">
+            A chronological roadmap of academic foundations, major engineering projects, and career milestones.
+          </p>
+        </div>
+
+        <div class="timeline-spine">
+          
+          <!-- Event 1: Senior Software Engineer (Present) -->
+          <article class="timeline-event-item">
+            <div class="timeline-node" aria-hidden="true">
+              <span class="node-inner-dot"></span>
+            </div>
+            <div class="timeline-event-card">
+              <div class="event-card-header">
+                <span class="event-date-pill">2024 &ndash; PRESENT</span>
+                <span class="event-category-badge badge-career">💼 Career Milestone</span>
+              </div>
+              <h3 class="event-title">Senior Software Engineer &amp; Architecture Lead</h3>
+              <h4 class="event-entity">Tech Innovators Corp</h4>
+              <p class="event-description">
+                Spearheading the architectural redesign of core backend microservices into containerized cloud services. Optimized compute infrastructure, reduced cloud costs by 35%, and established automated CI/CD deployment gates.
+              </p>
+              <div class="event-tech-tags">
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">AWS ECS</span>
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">Microservices</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Event 2: Major Project - Cloud Performance Telemetry Engine (2024) -->
+          <article class="timeline-event-item">
+            <div class="timeline-node" aria-hidden="true">
+              <span class="node-inner-dot"></span>
+            </div>
+            <div class="timeline-event-card">
+              <div class="event-card-header">
+                <span class="event-date-pill">2024</span>
+                <span class="event-category-badge badge-project">🚀 Major Project</span>
+              </div>
+              <h3 class="event-title">Cloud Performance Telemetry &amp; Anomaly Monitor</h3>
+              <h4 class="event-entity">Open Source Systems Engineering</h4>
+              <p class="event-description">
+                Architected and deployed a real-time system monitoring dashboard using Go and WebSockets. Ingests high-frequency metrics across server clusters, computes latency percentiles (p95/p99), and alerts teams to memory leaks and CPU spikes in sub-second intervals.
+              </p>
+              <div class="event-tech-tags">
+                <span class="tech-tag">Go (Golang)</span>
+                <span class="tech-tag">React.js</span>
+                <span class="tech-tag">WebSocket</span>
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">Prometheus</span>
+              </div>
+              <div class="event-actions">
+                <a href="#projects" class="event-link">View in Projects &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Event 3: Major Project - Distributed E-Commerce API (2023 - 2024) -->
+          <article class="timeline-event-item">
+            <div class="timeline-node" aria-hidden="true">
+              <span class="node-inner-dot"></span>
+            </div>
+            <div class="timeline-event-card">
+              <div class="event-card-header">
+                <span class="event-date-pill">2023 &ndash; 2024</span>
+                <span class="event-category-badge badge-project">🚀 Major Project</span>
+              </div>
+              <h3 class="event-title">Distributed E-Commerce API &amp; Messaging System</h3>
+              <h4 class="event-entity">High-Concurrency Cloud Architecture</h4>
+              <p class="event-description">
+                Designed a transactional distributed commerce backend incorporating Redis caching for product catalogs, atomic inventory locking to eliminate race conditions, and asynchronous payment processing with Stripe webhook reliability.
+              </p>
+              <div class="event-tech-tags">
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">Redis</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">Stripe API</span>
+                <span class="tech-tag">Kafka</span>
+              </div>
+              <div class="event-actions">
+                <a href="#projects" class="event-link">View in Projects &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Event 4: Full Stack Developer (2022 - 2024) -->
+          <article class="timeline-event-item">
+            <div class="timeline-node" aria-hidden="true">
+              <span class="node-inner-dot"></span>
+            </div>
+            <div class="timeline-event-card">
+              <div class="event-card-header">
+                <span class="event-date-pill">2022 &ndash; 2024</span>
+                <span class="event-category-badge badge-career">💼 Career Milestone</span>
+              </div>
+              <h3 class="event-title">Full Stack Developer</h3>
+              <h4 class="event-entity">Digital Solutions Studio</h4>
+              <p class="event-description">
+                Built responsive web interfaces and RESTful backend architectures for enterprise clients. Collaborated across design, QA, and dev teams to ship accessible portals, maintain 99.9% uptime, and optimize database indexing.
+              </p>
+              <div class="event-tech-tags">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Express</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">TailwindCSS</span>
+                <span class="tech-tag">Jest</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Event 5: Education - Bachelor of Technology in CS (2020 - 2024) -->
+          <article class="timeline-event-item">
+            <div class="timeline-node" aria-hidden="true">
+              <span class="node-inner-dot"></span>
+            </div>
+            <div class="timeline-event-card">
+              <div class="event-card-header">
+                <span class="event-date-pill">2020 &ndash; 2024</span>
+                <span class="event-category-badge badge-education">🎓 Education</span>
+              </div>
+              <h3 class="event-title">Bachelor of Technology in Computer Science &amp; Engineering</h3>
+              <h4 class="event-entity">University Institute of Technology</h4>
+              <p class="event-description">
+                Graduated with First Class Distinction (GPA 3.8 / 4.0). Focused on Advanced Algorithms, Distributed Computing, Database Systems, Operating Systems, and Object-Oriented Software Design. Led student developer teams in university hackathons.
+              </p>
+              <div class="event-tech-tags">
+                <span class="tech-tag">Algorithms</span>
+                <span class="tech-tag">Distributed Systems</span>
+                <span class="tech-tag">DBMS</span>
+                <span class="tech-tag">Computer Networks</span>
+              </div>
+              <div class="event-actions">
+                <a href="#education" class="event-link">View Academic Details &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Event 6: Higher Secondary Education & Hackathon Distinction (2018 - 2020) -->
+          <article class="timeline-event-item">
+            <div class="timeline-node" aria-hidden="true">
+              <span class="node-inner-dot"></span>
+            </div>
+            <div class="timeline-event-card">
+              <div class="event-card-header">
+                <span class="event-date-pill">2018 &ndash; 2020</span>
+                <span class="event-category-badge badge-education">🎓 Education &amp; Honors</span>
+              </div>
+              <h3 class="event-title">Higher Secondary Certificate &ndash; Science &amp; Mathematics</h3>
+              <h4 class="event-entity">Senior Secondary Model Academy</h4>
+              <p class="event-description">
+                Graduated in top academic percentile with rigorous coursework in Advanced Mathematics, Physics, Chemistry, and Foundations of Computer Logic. Awarded 1st place in regional inter-school algorithmic programming competition.
+              </p>
+              <div class="event-tech-tags">
+                <span class="tech-tag">Advanced Math</span>
+                <span class="tech-tag">Physics</span>
+                <span class="tech-tag">Problem Solving</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================= -->
+    <!-- CERTIFICATES SECTION                                    -->
+    <!-- ======================================================= -->
+    <section class="section certificates-section" id="certificates" aria-labelledby="certificates-title">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Verified Credentials</p>
+          <h2 class="section-title pixel-heading-sm" id="certificates-title">Certificates &amp; Badges</h2>
+        </div>
+
+        <div class="certificates-grid">
+          <!-- Cert Card 1 -->
+          <article class="pixel-box certificate-card">
+            <div class="cert-badge-icon" aria-hidden="true">📜</div>
+            <div class="cert-details">
+              <span class="cert-issuer">AMAZON WEB SERVICES</span>
+              <h3 class="cert-name">AWS Certified Solutions Architect – Associate</h3>
+              <p class="cert-meta">Issued: 2024 &bull; ID: AWS-ARCH-99420</p>
+              <div class="cert-tags">
+                <span class="tech-tag">Cloud Arch</span>
+                <span class="tech-tag">Microservices</span>
+                <span class="tech-tag">Security</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Cert Card 2 -->
+          <article class="pixel-box certificate-card">
+            <div class="cert-badge-icon" aria-hidden="true">⚛️</div>
+            <div class="cert-details">
+              <span class="cert-issuer">META / COURSERA</span>
+              <h3 class="cert-name">Meta Full-Stack Software Developer Professional</h3>
+              <p class="cert-meta">Issued: 2023 &bull; ID: META-FS-81932</p>
+              <div class="cert-tags">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node / APIs</span>
+                <span class="tech-tag">CI/CD</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Cert Card 3 -->
+          <article class="pixel-box certificate-card">
+            <div class="cert-badge-icon" aria-hidden="true">⚓</div>
+            <div class="cert-details">
+              <span class="cert-issuer">LINUX FOUNDATION / CNCF</span>
+              <h3 class="cert-name">Certified Kubernetes Application Developer (CKAD)</h3>
+              <p class="cert-meta">Issued: 2024 &bull; ID: CKAD-77312</p>
+              <div class="cert-tags">
+                <span class="tech-tag">Kubernetes</span>
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">Helm</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Cert Card 4 -->
+          <article class="pixel-box certificate-card">
+            <div class="cert-badge-icon" aria-hidden="true">🌐</div>
+            <div class="cert-details">
+              <span class="cert-issuer">GOOGLE CLOUD</span>
+              <h3 class="cert-name">Google Cloud Associate Cloud Engineer</h3>
+              <p class="cert-meta">Issued: 2023 &bull; ID: GCP-ACE-55201</p>
+              <div class="cert-tags">
+                <span class="tech-tag">Cloud Run</span>
+                <span class="tech-tag">IAM</span>
+                <span class="tech-tag">BigQuery</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================= -->
+    <!-- 5. PROJECTS SECTION                                     -->
+    <!-- ======================================================= -->
+    <!-- Each project card (article.project-card) contains a data-project attribute
+         that maps it to a corresponding modal overlay with matching id="modal-{project}".
+         Clicking the thumbnail or "View Details" button triggers openProjectModal(id).
+         This keeps the card ↔ modal connection explicit and maintainable. -->
+    <section class="section projects-section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Featured Work</p>
+          <h2 class="section-title pixel-heading-sm" id="projects-title">[ Projects ]</h2>
+          <p class="section-subtitle">A selection of engineering work spanning systems, infrastructure, and interactive software.</p>
+        </div>
+
+        <!-- Project filter tabs -->
+        <div class="project-filter-bar" role="tablist" aria-label="Filter projects by category">
+          <button class="proj-filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="proj-filter-btn" data-filter="backend" role="tab" aria-selected="false">Backend</button>
+          <button class="proj-filter-btn" data-filter="fullstack" role="tab" aria-selected="false">Full Stack</button>
+          <button class="proj-filter-btn" data-filter="tooling" role="tab" aria-selected="false">Dev Tools</button>
+          <button class="proj-filter-btn" data-filter="game" role="tab" aria-selected="false">Game Dev</button>
+        </div>
+
+        <div class="projects-grid" id="projects-grid">
+
+          <!-- =========================================================
+               PROJECT CARD 1: Cloud Performance Telemetry Monitor
+               Connected to: #modal-telemetry  (data-project="telemetry")
+               Click anywhere on the thumbnail image or the "View Details"
+               button to open the modal with full project details.
+               ========================================================= -->
+          <article class="project-card" data-project="telemetry" data-category="backend" tabindex="0"
+                   role="button" aria-label="View details for Cloud Performance Monitor"
+                   onclick="openProjectModal('telemetry')" onkeydown="if(event.key==='Enter')openProjectModal('telemetry')">
+            <!-- Thumbnail image — clicking this opens the detail modal -->
+            <div class="project-thumbnail">
+              <img src="project_telemetry.jpg"
+                   alt="Cloud Performance Telemetry Dashboard screenshot showing CPU, memory gauges, and real-time graphs"
+                   class="project-thumb-img" loading="lazy">
+              <!-- Overlay that appears on hover: "Click to view details" -->
+              <div class="project-thumb-overlay" aria-hidden="true">
+                <span class="thumb-overlay-text">🔍 View Details</span>
+              </div>
+              <span class="project-type-badge badge-backend">Backend</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Cloud Performance Telemetry</h3>
+              <p class="project-description">
+                Real-time server monitoring dashboard using Go and WebSockets, computing latency percentiles and anomaly alerts in sub-second intervals.
+              </p>
+              <ul class="project-tech-list" aria-label="Technologies used" role="list">
+                <li class="tech-tag">Go</li>
+                <li class="tech-tag">React</li>
+                <li class="tech-tag">WebSocket</li>
+                <li class="tech-tag">Docker</li>
+                <li class="tech-tag">Prometheus</li>
+              </ul>
+              <div class="project-links">
+                <!-- "View Details" opens the linked modal overlay -->
+                <button class="project-link project-link-detail" onclick="event.stopPropagation(); openProjectModal('telemetry')" aria-label="Open detailed view for Cloud Performance Monitor">Details ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- =========================================================
+               PROJECT CARD 2: Distributed E-Commerce API
+               Connected to: #modal-ecommerce  (data-project="ecommerce")
+               ========================================================= -->
+          <article class="project-card" data-project="ecommerce" data-category="backend" tabindex="0"
+                   role="button" aria-label="View details for E-Commerce Distributed API"
+                   onclick="openProjectModal('ecommerce')" onkeydown="if(event.key==='Enter')openProjectModal('ecommerce')">
+            <div class="project-thumbnail">
+              <img src="project_ecommerce.jpg"
+                   alt="E-Commerce API dashboard showing orders table, Stripe webhook metrics, and inventory analytics"
+                   class="project-thumb-img" loading="lazy">
+              <div class="project-thumb-overlay" aria-hidden="true">
+                <span class="thumb-overlay-text">🔍 View Details</span>
+              </div>
+              <span class="project-type-badge badge-backend">Backend</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">E-Commerce Distributed API</h3>
+              <p class="project-description">
+                High-concurrency transactional commerce backend with Redis caching, atomic inventory locking, and Stripe webhook reliability.
+              </p>
+              <ul class="project-tech-list" aria-label="Technologies used" role="list">
+                <li class="tech-tag">Node.js</li>
+                <li class="tech-tag">Redis</li>
+                <li class="tech-tag">PostgreSQL</li>
+                <li class="tech-tag">Stripe API</li>
+                <li class="tech-tag">Kafka</li>
+              </ul>
+              <div class="project-links">
+                <button class="project-link project-link-detail" onclick="event.stopPropagation(); openProjectModal('ecommerce')" aria-label="Open detailed view for E-Commerce Distributed API">Details ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- =========================================================
+               PROJECT CARD 3: AI Code Reviewer CLI
+               Connected to: #modal-aireviewer  (data-project="aireviewer")
+               ========================================================= -->
+          <article class="project-card" data-project="aireviewer" data-category="tooling" tabindex="0"
+                   role="button" aria-label="View details for AI Code Reviewer CLI"
+                   onclick="openProjectModal('aireviewer')" onkeydown="if(event.key==='Enter')openProjectModal('aireviewer')">
+            <div class="project-thumbnail">
+              <img src="project_aireviewer.jpg"
+                   alt="AI Code Reviewer IDE showing git diff with security warning and automated suggestions panel"
+                   class="project-thumb-img" loading="lazy">
+              <div class="project-thumb-overlay" aria-hidden="true">
+                <span class="thumb-overlay-text">🔍 View Details</span>
+              </div>
+              <span class="project-type-badge badge-tooling">Dev Tools</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">AI Code Reviewer CLI</h3>
+              <p class="project-description">
+                A Python CLI tool that parses git diffs and performs automated security, style, and bug-risk analysis using the OpenAI API.
+              </p>
+              <ul class="project-tech-list" aria-label="Technologies used" role="list">
+                <li class="tech-tag">Python</li>
+                <li class="tech-tag">Click</li>
+                <li class="tech-tag">OpenAI API</li>
+                <li class="tech-tag">Git</li>
+              </ul>
+              <div class="project-links">
+                <button class="project-link project-link-detail" onclick="event.stopPropagation(); openProjectModal('aireviewer')" aria-label="Open detailed view for AI Code Reviewer CLI">Details ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- =========================================================
+               PROJECT CARD 4: Pixel Dungeon RPG
+               Connected to: #modal-pixelgame  (data-project="pixelgame")
+               ========================================================= -->
+          <article class="project-card" data-project="pixelgame" data-category="game" tabindex="0"
+                   role="button" aria-label="View details for Pixel Dungeon RPG"
+                   onclick="openProjectModal('pixelgame')" onkeydown="if(event.key==='Enter')openProjectModal('pixelgame')">
+            <div class="project-thumbnail">
+              <img src="project_pixelgame.jpg"
+                   alt="Pixel art RPG dungeon crawler game showing hero fighting goblins with HP and MP bars"
+                   class="project-thumb-img" loading="lazy">
+              <div class="project-thumb-overlay" aria-hidden="true">
+                <span class="thumb-overlay-text">🔍 View Details</span>
+              </div>
+              <span class="project-type-badge badge-game">Game Dev</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Pixel Dungeon RPG</h3>
+              <p class="project-description">
+                A browser-playable 2D dungeon-crawler built with Phaser.js featuring procedurally generated levels, enemy AI, and pixel art aesthetics.
+              </p>
+              <ul class="project-tech-list" aria-label="Technologies used" role="list">
+                <li class="tech-tag">Phaser.js</li>
+                <li class="tech-tag">JavaScript</li>
+                <li class="tech-tag">Canvas API</li>
+                <li class="tech-tag">Tiled</li>
+              </ul>
+              <div class="project-links">
+                <button class="project-link project-link-detail" onclick="event.stopPropagation(); openProjectModal('pixelgame')" aria-label="Open detailed view for Pixel Dungeon RPG">Details ↗</button>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /projects-grid -->
+      </div>
+    </section>
+
+    <!-- =========================================================
+         PROJECT DETAIL MODALS
+         Each modal id="modal-{key}" matches the card's data-project="{key}".
+         openProjectModal(key) sets aria-hidden=false and shows the overlay.
+         Modals closed by: Escape key, backdrop click, or close button.
+         ========================================================= -->
+
+    <!-- Modal 1: Cloud Performance Telemetry -->
+    <div id="modal-telemetry" class="project-modal" role="dialog" aria-modal="true"
+         aria-labelledby="modal-telemetry-title" aria-hidden="true">
+      <div class="modal-backdrop" onclick="closeProjectModal('telemetry')"></div>
+      <div class="modal-panel">
+        <button class="modal-close-btn" onclick="closeProjectModal('telemetry')" aria-label="Close project detail">✕</button>
+        <div class="modal-thumb-wrap">
+          <img src="project_telemetry.jpg" alt="Cloud Performance Telemetry Dashboard" class="modal-thumb-img">
+        </div>
+        <div class="modal-content">
+          <span class="modal-category badge-backend">Backend · Systems</span>
+          <h2 class="modal-title" id="modal-telemetry-title">Cloud Performance Telemetry &amp; Anomaly Monitor</h2>
+          <p class="modal-overview">
+            Architected and deployed a real-time system monitoring platform using Go and WebSockets. Ingests high-frequency metrics across server clusters, computes latency percentiles (p95/p99), and alerts ops teams to memory leaks and CPU spikes in sub-second intervals.
+          </p>
+          <div class="modal-highlights">
+            <div class="modal-highlight-item">⚡ Sub-100ms alert latency</div>
+            <div class="modal-highlight-item">📊 p95/p99 percentile tracking</div>
+            <div class="modal-highlight-item">🐳 Containerized with Docker Compose</div>
+          </div>
+          <div class="modal-tech-row">
+            <span class="tech-tag">Go (Golang)</span>
+            <span class="tech-tag">React.js</span>
+            <span class="tech-tag">WebSocket</span>
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">Prometheus</span>
+            <span class="tech-tag">Grafana</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2: E-Commerce Distributed API -->
+    <div id="modal-ecommerce" class="project-modal" role="dialog" aria-modal="true"
+         aria-labelledby="modal-ecommerce-title" aria-hidden="true">
+      <div class="modal-backdrop" onclick="closeProjectModal('ecommerce')"></div>
+      <div class="modal-panel">
+        <button class="modal-close-btn" onclick="closeProjectModal('ecommerce')" aria-label="Close project detail">✕</button>
+        <div class="modal-thumb-wrap">
+          <img src="project_ecommerce.jpg" alt="E-Commerce API Dashboard" class="modal-thumb-img">
+        </div>
+        <div class="modal-content">
+          <span class="modal-category badge-backend">Backend · Distributed Systems</span>
+          <h2 class="modal-title" id="modal-ecommerce-title">Distributed E-Commerce API &amp; Messaging System</h2>
+          <p class="modal-overview">
+            Designed a transactional distributed commerce backend incorporating Redis caching for product catalogs, atomic inventory locking to eliminate race conditions, and asynchronous payment processing with Stripe webhook reliability guarantees.
+          </p>
+          <div class="modal-highlights">
+            <div class="modal-highlight-item">🔒 Atomic inventory locking (zero race conditions)</div>
+            <div class="modal-highlight-item">⚡ Redis cache: 10x read throughput improvement</div>
+            <div class="modal-highlight-item">💳 99.8% Stripe webhook success rate</div>
+          </div>
+          <div class="modal-tech-row">
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">Redis</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">Stripe API</span>
+            <span class="tech-tag">Kafka</span>
+            <span class="tech-tag">Express.js</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 3: AI Code Reviewer CLI -->
+    <div id="modal-aireviewer" class="project-modal" role="dialog" aria-modal="true"
+         aria-labelledby="modal-aireviewer-title" aria-hidden="true">
+      <div class="modal-backdrop" onclick="closeProjectModal('aireviewer')"></div>
+      <div class="modal-panel">
+        <button class="modal-close-btn" onclick="closeProjectModal('aireviewer')" aria-label="Close project detail">✕</button>
+        <div class="modal-thumb-wrap">
+          <img src="project_aireviewer.jpg" alt="AI Code Reviewer CLI interface" class="modal-thumb-img">
+        </div>
+        <div class="modal-content">
+          <span class="modal-category badge-tooling">Dev Tools · AI/ML</span>
+          <h2 class="modal-title" id="modal-aireviewer-title">AI Code Reviewer CLI</h2>
+          <p class="modal-overview">
+            A command-line tool that parses git diffs and runs them through the OpenAI API to perform automated security vulnerability detection, style consistency checks, and bug-risk analysis — outputting actionable inline suggestions per changed line.
+          </p>
+          <div class="modal-highlights">
+            <div class="modal-highlight-item">🔍 CWE security vulnerability detection</div>
+            <div class="modal-highlight-item">🤖 GPT-4 powered analysis engine</div>
+            <div class="modal-highlight-item">📋 Pipe-friendly CLI output (JSON/text)</div>
+          </div>
+          <div class="modal-tech-row">
+            <span class="tech-tag">Python 3.11</span>
+            <span class="tech-tag">Click</span>
+            <span class="tech-tag">OpenAI API</span>
+            <span class="tech-tag">GitPython</span>
+            <span class="tech-tag">Rich</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 4: Pixel Dungeon RPG -->
+    <div id="modal-pixelgame" class="project-modal" role="dialog" aria-modal="true"
+         aria-labelledby="modal-pixelgame-title" aria-hidden="true">
+      <div class="modal-backdrop" onclick="closeProjectModal('pixelgame')"></div>
+      <div class="modal-panel">
+        <button class="modal-close-btn" onclick="closeProjectModal('pixelgame')" aria-label="Close project detail">✕</button>
+        <div class="modal-thumb-wrap">
+          <img src="project_pixelgame.jpg" alt="Pixel Dungeon RPG gameplay screenshot" class="modal-thumb-img">
+        </div>
+        <div class="modal-content">
+          <span class="modal-category badge-game">Game Dev · Creative</span>
+          <h2 class="modal-title" id="modal-pixelgame-title">Pixel Dungeon RPG</h2>
+          <p class="modal-overview">
+            A fully browser-playable 2D dungeon crawler built with Phaser.js. Features procedurally generated levels using Drunkard's Walk algorithm, enemy pathfinding AI, pixel art sprite sheets, inventory management, and a quest dialogue system.
+          </p>
+          <div class="modal-highlights">
+            <div class="modal-highlight-item">🗺️ Procedural dungeon generation</div>
+            <div class="modal-highlight-item">🧠 A* enemy pathfinding AI</div>
+            <div class="modal-highlight-item">🎮 Browser playable — zero install</div>
+          </div>
+          <div class="modal-tech-row">
+            <span class="tech-tag">Phaser.js 3</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Canvas API</span>
+            <span class="tech-tag">Tiled Map Editor</span>
+            <span class="tech-tag">Webpack</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================= -->
+    <!-- VIDEO HIGHLIGHT SECTION                                 -->
+    <!-- ======================================================= -->
+    <!-- Responsive video container using aspect-ratio to maintain
+         16:9 ratio at all viewport widths. The local MP4 file is used
+         as the primary source. Fits the pixel art aesthetic via the
+         pixel-box wrapper and scanline overlay. -->
+    <section class="section video-section" id="video-highlight" aria-labelledby="video-title">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">In Action</p>
+          <h2 class="section-title pixel-heading-sm" id="video-title">[ Portfolio Highlight ]</h2>
+          <p class="section-subtitle">A short introduction to selected projects and the engineering process.</p>
+        </div>
+
+        <div class="video-outer-wrap pixel-box">
+          <!-- pixel art title bar mimicking a media player HUD -->
+          <div class="video-title-bar">
+            <span class="video-bar-label">▶ DEMO_REEL.MP4 // PLAYBACK_MODE</span>
+            <div class="video-bar-dots" aria-hidden="true">
+              <span class="vdot vdot-red"></span>
+              <span class="vdot vdot-yellow"></span>
+              <span class="vdot vdot-green"></span>
+            </div>
+          </div>
+          <!-- Responsive 16:9 video wrapper using aspect-ratio CSS -->
+          <div class="video-responsive-wrap">
+            <video
+              id="portfolio-video"
+              class="portfolio-video"
+              controls
+              playsinline
+              preload="metadata"
+              aria-label="Portfolio highlight video showing project demonstrations"
+            >
+              <!-- Primary source: local portfolio video -->
+              <source src="./WhatsApp%20Video%202026-10-07%20at%209.54.57%20AM.mp4" type="video/mp4">
+              Your browser does not support the video tag. Please upgrade to a modern browser.
+            </video>
+          </div>
+          <!-- Video caption aligned with the pixel art aesthetic -->
+          <p class="video-caption">
+            <span class="caption-icon" aria-hidden="true">📼</span>
+            A brief introduction to my work and a closer look at selected portfolio projects.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================= -->
+    <!-- EDUCATION SECTION                                       -->
+    <!-- ======================================================= -->
+    <section class="section education-section" id="education" aria-labelledby="education-title">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Academic Foundation</p>
+          <h2 class="section-title pixel-heading-sm" id="education-title">Education &amp; Academics</h2>
+        </div>
+
+        <div class="education-grid">
+          <article class="pixel-box education-card">
+            <div class="edu-header">
+              <span class="edu-period">2020 &ndash; 2024</span>
+              <span class="pixel-badge pixel-badge-primary">GPA: 3.8 / 4.0</span>
+            </div>
+            <h3 class="edu-degree">Bachelor of Technology in Computer Science &amp; Engineering</h3>
+            <h4 class="edu-school">University Institute of Technology</h4>
+            <p class="edu-desc">
+              Graduated with First Class Honors. Specialized in Distributed Software Architectures, Algorithms, Database Management Systems, and Object-Oriented Design.
+            </p>
+            <div class="edu-highlights">
+              <span class="tech-tag">Data Structures</span>
+              <span class="tech-tag">Distributed Systems</span>
+              <span class="tech-tag">Cloud &amp; Networks</span>
+            </div>
+          </article>
+
+          <article class="pixel-box education-card">
+            <div class="edu-header">
+              <span class="edu-period">2018 &ndash; 2020</span>
+              <span class="pixel-badge pixel-badge-status">DISTINCTION</span>
+            </div>
+            <h3 class="edu-degree">Higher Secondary Certificate &ndash; Science &amp; Mathematics</h3>
+            <h4 class="edu-school">Senior Secondary Model Academy</h4>
+            <p class="edu-desc">
+              Completed intensive core curriculum in Mathematics, Physics, Chemistry, and Foundations of Computer Programming. Recipient of Merit Scholar Recognition.
+            </p>
+            <div class="edu-highlights">
+              <span class="tech-tag">Advanced Math</span>
+              <span class="tech-tag">Physics</span>
+              <span class="tech-tag">Computational Logic</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================= -->
+    <!-- CHAT SECTION (INTERACTIVE PIXEL AI TERMINAL)            -->
+    <!-- ======================================================= -->
+    <section class="section chat-section" id="chat" aria-labelledby="chat-title">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Interactive Communicator</p>
+          <h2 class="section-title pixel-heading-sm" id="chat-title">Comm Link // Chat</h2>
+        </div>
+
+        <div class="pixel-box chat-terminal-container">
+          <!-- Terminal Title Bar -->
+          <div class="dialog-title-bar">
+            <span class="dialog-bar-title">💬 COMM_CHANNEL: MANAV_AI_TERMINAL.EXE</span>
+            <div class="dialog-controls" aria-hidden="true">
+              <span class="control-btn control-min">_</span>
+              <span class="control-btn control-max">□</span>
+              <span class="control-btn control-close">✕</span>
+            </div>
+          </div>
+
+          <!-- Message History Window -->
+          <div class="chat-terminal-body" id="chat-messages" role="log" aria-live="polite">
+            <div class="chat-message bot-message">
+              <span class="chat-author">[BOT_MANAV]:</span>
+              <p class="chat-text">
+                Hi! I can answer questions about Manav's skills, projects, experience, education, availability, and contact details. What would you like to know?
+              </p>
+            </div>
+          </div>
+
+          <!-- Interactive Quick Prompt Pills -->
+          <div class="chat-quick-prompts" aria-label="Suggested questions">
+            <span class="quick-prompts-label">QUICK PROMPTS:</span>
+            <button type="button" class="pixel-btn pixel-btn-sm chat-pill" data-prompt="skills">⚔️ Core Skills?</button>
+            <button type="button" class="pixel-btn pixel-btn-sm chat-pill" data-prompt="projects">🕹️ Featured Projects?</button>
+            <button type="button" class="pixel-btn pixel-btn-sm chat-pill" data-prompt="hire">💼 Open for Hire?</button>
+            <button type="button" class="pixel-btn pixel-btn-sm chat-pill" data-prompt="resume">💾 Download Resume?</button>
+          </div>
+
+          <!-- Interactive Input Form -->
+          <form class="chat-input-row" id="terminal-chat-form">
+            <label for="chat-user-input" class="sr-only">Type a message</label>
+            <input 
+              type="text" 
+              id="chat-user-input" 
+              class="pixel-chat-input" 
+              placeholder="Ask a question or click a prompt above..." 
+              autocomplete="off"
+            >
+            <button type="submit" class="pixel-btn pixel-btn-action" id="chat-send-btn">
+              [ ⏎ TRANSMIT ]
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================= -->
+    <!-- 6. CONTACT SECTION                                      -->
+    <!-- ======================================================= -->
+    <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Connect With Me</p>
+          <h2 class="section-title" id="contact-title">Get In Touch</h2>
+        </div>
+
+        <div class="contact-wrapper">
+          <div class="contact-info">
+            <p class="contact-intro">
+              <!-- Placeholder: Availability blurb -->
+              I am always open to discussing new opportunities, collaborations, or engineering challenges. Feel free to reach out!
+            </p>
+            <ul class="contact-details-list" role="list">
+              <li><strong>Email:</strong> <a href="mailto:manav27cm@gmail.com">manav27cm@gmail.com</a></li>
+              <li><strong>Phone:</strong> <a href="tel:7019800876">7019800876</a></li>
+              <li><strong>GitHub:</strong> <a href="https://github.com/Manavshetty27" target="_blank" rel="noopener noreferrer">github.com/Manavshetty27</a></li>
+              <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/manav-devang-cm" target="_blank" rel="noopener noreferrer">linkedin.com/in/manav-devang-cm</a></li>
+              <li><strong>Location:</strong> Available for remote worldwide &amp; local opportunities</li>
+            </ul>
+          </div>
+
+          <!-- Static contact form prepares an email draft; use a form service for server-side delivery. -->
+          <form class="contact-form" id="contact-form">
+            <div class="form-group">
+              <label for="contact-name">Your Name</label>
+              <input type="text" id="contact-name" name="name" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Your Email</label>
+              <input type="email" id="contact-email" name="email" placeholder="john@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Your Message</label>
+              <textarea id="contact-message" name="message" rows="5" placeholder="How can I help you?" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" id="btn-submit-contact">Send Message</button>
+            <div class="contact-form-response">
+              <p class="contact-form-status" id="contact-form-status" role="status" aria-live="polite" hidden></p>
+              <a class="contact-email-draft" id="contact-email-draft" hidden>Open prepared email draft</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================= -->
+  <!-- FOOTER — Pixel Art Style with Accessible Social Icons     -->
+  <!-- ========================================================= -->
+  <!-- Each social icon anchor has:
+       - aria-label for screen reader accessibility
+       - rel="noopener noreferrer" for security on external links
+       - title attribute for tooltip on hover
+       - SVG icon for crisp rendering at any size
+       Hover transitions controlled via .footer-social-link:hover in CSS -->
+  <footer class="site-footer" id="footer">
+    <div class="container footer-container">
+
+      <!-- Footer Top Row: Brand + Tagline -->
+      <div class="footer-brand">
+        <a href="#hero" class="footer-logo pixel-logo" aria-label="Back to top">
+          <span class="pixel-brand-icon">👾</span>
+          <span class="logo-code">&lt;</span>MANAV<span class="logo-code">/&gt;</span>
+        </a>
+        <p class="footer-tagline">Software Engineer · Building systems that scale.</p>
+      </div>
+
+      <!-- Footer Middle Row: Quick Nav + Social Icons -->
+      <div class="footer-middle">
+        <!-- Quick navigation links -->
+        <nav class="footer-nav" aria-label="Footer Quick Links">
+          <a href="#about" class="footer-link">About</a>
+          <a href="#skills" class="footer-link">Skills</a>
+          <a href="#projects" class="footer-link">Projects</a>
+          <a href="#contact" class="footer-link">Contact</a>
+          <a href="Manav_resume.pdf" class="footer-link" download aria-label="Download Resume PDF">Resume ↓</a>
+        </nav>
+
+        <!-- Social media icons with accessible labels and hover effects -->
+        <div class="footer-socials" role="list" aria-label="Social Media Links">
+
+          <a href="https://github.com/Manavshetty27" target="_blank" rel="noopener noreferrer"
+             class="footer-social-link" aria-label="Open GitHub" title="GitHub" role="listitem">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+            <span class="social-label">GitHub</span>
+          </a>
+
+          <a href="https://www.linkedin.com/in/manav-devang-cm" target="_blank" rel="noopener noreferrer"
+             class="footer-social-link" aria-label="Open LinkedIn" title="LinkedIn" role="listitem">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            <span class="social-label">LinkedIn</span>
+          </a>
+
+          <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"
+             class="footer-social-link" aria-label="Open X / Twitter" title="Twitter / X" role="listitem">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+            <span class="social-label">X / Twitter</span>
+          </a>
+
+          <a href="https://dev.to/" target="_blank" rel="noopener noreferrer"
+             class="footer-social-link" aria-label="Open Dev.to" title="Dev.to" role="listitem">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+              <path d="M7.826 10.083a.784.784 0 0 0-.468-.175h-.701v4.198h.701a.786.786 0 0 0 .468-.175c.155-.117.233-.292.233-.525v-2.798c.001-.233-.079-.408-.233-.525zM19.236 3H4.764C3.791 3 3.002 3.787 3 4.76v14.48C3.002 20.213 3.791 21 4.764 21h14.473c.973 0 1.762-.787 1.764-1.76V4.76C21 3.787 20.21 3 19.236 3zM9.195 13.414c0 .784-.61 1.428-1.36 1.428H5.498V9.158h2.337c.75 0 1.36.644 1.36 1.428v2.828zm4.429-3.979H11.93v1.23h1.107v1.161H11.93v1.23h1.693v1.162h-2.355a.38.38 0 0 1-.38-.38V9.54a.38.38 0 0 1 .38-.38h2.355v1.275zm3.08 4.124c-.313.636-1.297.534-1.655 0l-.856-2.437V14h-1.22V9.537c.397 0 .735.26.858.638l.938 2.73.934-2.73a.91.91 0 0 1 .86-.638v4.463h-1.222V11.12l-.637 2.439z"/>
+            </svg>
+            <span class="social-label">Dev.to</span>
+          </a>
+
+          <!-- Email — direct contact -->
+          <a href="mailto:manav27cm@gmail.com"
+             class="footer-social-link" aria-label="Send an email" title="Email Me" role="listitem">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+              <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            <span class="social-label">Email</span>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Footer Bottom Row: Copyright + Back to Top -->
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          &copy; <span id="current-year">2026</span> Manav — Software Engineer. Built with HTML, CSS &amp; JavaScript.
+        </p>
+        <a href="#hero" class="footer-back-top pixel-btn pixel-btn-sm" aria-label="Scroll back to top of page">
+          ↑ Back to Top
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================= -->
+  <!-- JAVASCRIPT LOGIC PLACEHOLDER                              -->
+  <!-- ========================================================= -->
+  <!-- Placeholder: Scripts for night mode toggle, mobile navigation, and year auto-update -->
+  <script>
+    // 1. Auto-update copyright year
+    const yearEl = document.getElementById('current-year');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+
+    // 2. Night Mode / Theme Toggle with CSS Media Query Browser Theme Detection
+    const desktopThemeToggleBtn = document.getElementById('theme-toggle');
+    const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle');
+    const systemDarkMedia = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function getEffectiveTheme() {
+      const explicitTheme = document.documentElement.getAttribute('data-theme');
+      if (explicitTheme) return explicitTheme;
+      return systemDarkMedia.matches ? 'dark' : 'light';
+    }
+
+    function updateToggleUI(theme) {
+      const isDark = theme === 'dark';
+      [desktopThemeToggleBtn, mobileThemeToggleBtn].forEach(btn => {
+        if (!btn) return;
+        btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+        btn.setAttribute('title', isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode');
+      });
+    }
+
+    function toggleThemeAction() {
+      const currentTheme = getEffectiveTheme();
+      const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', nextTheme);
+      localStorage.setItem('theme-preference', nextTheme);
+      updateToggleUI(nextTheme);
+    }
+
+    const savedTheme = localStorage.getItem('theme-preference');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      updateToggleUI(savedTheme);
+    } else {
+      updateToggleUI(systemDarkMedia.matches ? 'dark' : 'light');
+    }
+
+    systemDarkMedia.addEventListener('change', (e) => {
+      if (!localStorage.getItem('theme-preference')) {
+        updateToggleUI(e.matches ? 'dark' : 'light');
+      }
+    });
+
+    if (desktopThemeToggleBtn) desktopThemeToggleBtn.addEventListener('click', toggleThemeAction);
+    if (mobileThemeToggleBtn) mobileThemeToggleBtn.addEventListener('click', toggleThemeAction);
+
+    // 3. Responsive Vertical Sidebar Drawer (Mobile Open / Close & Accessibility)
+    const sidebar = document.getElementById('sidebar-nav');
+    const openMenuBtn = document.getElementById('mobile-menu-open-btn');
+    const closeMenuBtn = document.getElementById('mobile-menu-close-btn');
+    const backdrop = document.getElementById('sidebar-backdrop');
+    const navLinks = document.querySelectorAll('.sidebar-nav-link');
+
+    function openSidebar() {
+      if (!sidebar) return;
+      sidebar.classList.add('is-open');
+      if (backdrop) backdrop.classList.add('is-open');
+      if (openMenuBtn) openMenuBtn.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('sidebar-locked');
+    }
+
+    function closeSidebar() {
+      if (!sidebar) return;
+      sidebar.classList.remove('is-open');
+      if (backdrop) backdrop.classList.remove('is-open');
+      if (openMenuBtn) openMenuBtn.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('sidebar-locked');
+    }
+
+    if (openMenuBtn) openMenuBtn.addEventListener('click', openSidebar);
+    if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeSidebar);
+    if (backdrop) backdrop.addEventListener('click', closeSidebar);
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && sidebar && sidebar.classList.contains('is-open')) {
+        closeSidebar();
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 1024) {
+          closeSidebar();
+        }
+      });
+    });
+
+    // 4. Scrollspy: Highlight Active Nav Link with Pixel Pointer Indicator
+    const sectionIds = ['hero', 'about', 'skills', 'timeline', 'certificates', 'projects', 'education', 'chat', 'contact'];
+    const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+    function onScrollSpy() {
+      const scrollPos = window.scrollY + 180;
+      let currentSectionId = 'hero';
+
+      sections.forEach(section => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        if (scrollPos >= top && scrollPos < top + height) {
+          currentSectionId = section.id;
+        }
+      });
+
+      navLinks.forEach(link => {
+        const target = link.getAttribute('data-section') || link.getAttribute('href').replace('#', '');
+        if (target === currentSectionId) {
+          link.classList.add('is-active');
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.classList.remove('is-active');
+          link.removeAttribute('aria-current');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', onScrollSpy, { passive: true });
+    window.addEventListener('load', onScrollSpy);
+
+    // 5. Interactive Chat Section (AI / Terminal Communicator)
+    const chatForm = document.getElementById('terminal-chat-form');
+    const chatInput = document.getElementById('chat-user-input');
+    const chatMessages = document.getElementById('chat-messages');
+    const quickPills = document.querySelectorAll('.chat-pill');
+
+    // These local portfolio answers need a server endpoint to become generative AI.
+    const chatIntents = [
+      {
+        patterns: [/\b(hi|hello|hey|good morning|good afternoon|good evening)\b/],
+        reply: "Hi! Ask me about Manav's skills, projects, experience, education, availability, or contact details."
+      },
+      {
+        patterns: [/\b(help|what can you|what do you know|topics)\b/],
+        reply: "I can help with Manav's technical skills, featured projects, experience, education and certificates, availability, contact details, or resume. Try asking about any of those."
+      },
+      {
+        patterns: [/\b(telemetry|performance monitor|monitoring dashboard|anomaly alert|server monitor)\b/],
+        reply: "The Cloud Performance Telemetry project uses Go and WebSockets to monitor server metrics in real time, track p95/p99 latency, and surface anomalies. The portfolio highlights sub-100ms alert latency and Docker-based deployment."
+      },
+      {
+        patterns: [/\b(e-commerce|ecommerce|commerce api|inventory locking|stripe webhook)\b/],
+        reply: "The Distributed E-Commerce API combines Node.js, PostgreSQL, Redis, Kafka, and Stripe. Its portfolio highlights include atomic inventory locking, Redis caching, and reliable payment webhooks."
+      },
+      {
+        patterns: [/\b(code reviewer|code review|reviewing code|ai reviewer|security review cli)\b/],
+        reply: "The AI Code Reviewer CLI is a Python tool that analyzes Git diffs for security vulnerabilities, style issues, and bug risks, then provides actionable suggestions."
+      },
+      {
+        patterns: [/\b(dungeon|phaser|game dev|pixel game|dungeon crawler)\b/],
+        reply: "Pixel Dungeon RPG is a browser-playable Phaser.js game with procedurally generated levels, enemy pathfinding, pixel-art sprites, inventory, and quest dialogue."
+      },
+      {
+        patterns: [/\b(skill|skills|stack|tech|technology|technologies|frontend|backend)\b/],
+        reply: "Manav's stack includes React, Next.js, TypeScript, CSS and Tailwind on the frontend; Node.js, Python, Express and REST APIs on the backend; and PostgreSQL, MongoDB, Redis, Docker and AWS. His projects also use Go and WebSockets."
+      },
+      {
+        patterns: [/\b(project|projects|built|portfolio work|showcase)\b/],
+        reply: "Featured work includes a Go and WebSocket cloud telemetry monitor, a Node.js e-commerce API using Redis and PostgreSQL, an AI Code Reviewer CLI built with Python, and a browser-playable Phaser.js dungeon crawler. Ask about a project to learn more."
+      },
+      {
+        patterns: [/\b(experience|career|background|years|work history)\b/],
+        reply: "Manav is a Full-Stack Software Engineer with 3+ years of experience, focused on web applications, backend systems, distributed services, and cloud workflows."
+      },
+      {
+        patterns: [/\b(education|degree|university|college|study|studied)\b/],
+        reply: "Manav has a B.Tech in Computer Science and Engineering. His studies include algorithms, distributed computing, databases, operating systems, and software design."
+      },
+      {
+        patterns: [/\b(certification|certifications|certificate|certificates)\b/],
+        reply: "The portfolio lists certifications in AWS Solutions Architecture, Meta Full-Stack Software Development, Kubernetes application development (CKAD), and Google Cloud engineering."
+      },
+      {
+        patterns: [/\b(hire|hiring|job|jobs|available|availability|opportunity|opportunities)\b/],
+        reply: "Manav is open to software engineering roles, contract projects, and remote collaborations. Use the contact section to get in touch."
+      },
+      {
+        patterns: [/\b(contact|email|phone|github|linkedin|reach)\b/],
+        reply: "You can email Manav at manav27cm@gmail.com or call 7019800876. His GitHub is github.com/Manavshetty27 and his LinkedIn is linkedin.com/in/manav-devang-cm."
+      },
+      {
+        patterns: [/\b(resume|résumé|cv|download)\b/],
+        reply: "You can download Manav's resume using the Download CV button in the About section or the Resume link in the page navigation."
+      },
+      {
+        patterns: [/\b(thanks|thank you|thx)\b/],
+        reply: "You're welcome! If you'd like, ask about Manav's projects, technical skills, or how to get in touch."
+      },
+      {
+        patterns: [/\b(who are you|who is manav|about manav|introduce yourself)\b/],
+        reply: "I'm Manav's portfolio assistant. Manav is a Full-Stack Software Engineer who builds web applications, backend systems, and cloud-based software. Ask me about his work or background."
+      }
+    ];
+
+    const fallbackChatReply = "I don't have an answer for that yet. I can help with Manav's skills, projects, experience, education, availability, contact details, or resume.";
+
+    function getChatReply(query) {
+      const cleanQuery = query.trim().toLowerCase();
+      const matchingIntent = chatIntents.find(intent =>
+        intent.patterns.some(pattern => pattern.test(cleanQuery))
+      );
+      return matchingIntent ? matchingIntent.reply : fallbackChatReply;
+    }
+
+    function appendChatMessage(author, text, isUser = false, extraClass = '') {
+      if (!chatMessages) return null;
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `chat-message ${isUser ? 'user-message' : 'bot-message'} ${extraClass}`.trim();
+      
+      const authorSpan = document.createElement('span');
+      authorSpan.className = 'chat-author';
+      authorSpan.textContent = author;
+
+      const textP = document.createElement('p');
+      textP.className = 'chat-text';
+      textP.textContent = text;
+
+      msgDiv.appendChild(authorSpan);
+      msgDiv.appendChild(textP);
+      chatMessages.appendChild(msgDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      return msgDiv;
+    }
+
+    function handleChatQuery(query) {
+      const typingMessage = appendChatMessage('[BOT_MANAV]:', 'Thinking…', false, 'chat-typing');
+      setTimeout(() => {
+        if (typingMessage) typingMessage.remove();
+        appendChatMessage('[BOT_MANAV]:', getChatReply(query), false);
+      }, 450);
+    }
+
+    if (chatForm && chatInput) {
+      chatForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const msg = chatInput.value.trim();
+        if (!msg) return;
+        appendChatMessage('[YOU]:', msg, true);
+        chatInput.value = '';
+        handleChatQuery(msg);
+      });
+    }
+
+    quickPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const promptKey = pill.getAttribute('data-prompt');
+        const questionText = pill.textContent;
+        appendChatMessage('[YOU]:', questionText, true);
+        handleChatQuery(promptKey || questionText);
+      });
+    });
+
+    // Static-host fallback: prepare a mailto draft instead of posting to a missing backend.
+    const contactForm = document.getElementById('contact-form');
+    const contactFormStatus = document.getElementById('contact-form-status');
+    const contactEmailDraft = document.getElementById('contact-email-draft');
+
+    if (contactForm && contactFormStatus && contactEmailDraft) {
+      contactForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const recipientLink = document.querySelector('.contact-details-list a[href^="mailto:"]');
+        const recipient = recipientLink?.getAttribute('href').slice(7);
+
+        if (!recipient) {
+          contactFormStatus.hidden = false;
+          contactFormStatus.textContent = 'The contact email is not configured yet.';
+          return;
+        }
+
+        const formData = new FormData(contactForm);
+        const name = String(formData.get('name') || '').trim();
+        const email = String(formData.get('email') || '').trim();
+        const message = String(formData.get('message') || '').trim();
+        const subject = `Portfolio inquiry from ${name}`;
+        const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+
+        contactEmailDraft.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        contactEmailDraft.hidden = false;
+        contactFormStatus.hidden = false;
+        contactFormStatus.textContent = 'Your email draft is ready. Select the link below to send it.';
+      });
+    }
+
+    // 6. Skills Category Tabs Filter Logic
+    const skillTabBtns = document.querySelectorAll('.pixel-tab-btn');
+    const skillCards = document.querySelectorAll('.skill-panel-card');
+
+    skillTabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+        
+        skillTabBtns.forEach(b => {
+          b.classList.remove('is-active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-selected', 'true');
+
+        skillCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // 7. Project Modals: Open / Close Logic
+    // Each card's data-project="key" maps to id="modal-{key}".
+    // openProjectModal() reveals the dialog; closeProjectModal() hides it.
+    // Body scroll is locked while a modal is open to prevent background scrolling.
+    function openProjectModal(key) {
+      const modal = document.getElementById('modal-' + key);
+      if (!modal) return;
+      modal.setAttribute('aria-hidden', 'false');
+      modal.classList.add('is-open');
+      document.body.classList.add('modal-open');
+      // Focus the close button for keyboard accessibility
+      const closeBtn = modal.querySelector('.modal-close-btn');
+      if (closeBtn) setTimeout(() => closeBtn.focus(), 80);
+    }
+
+    function closeProjectModal(key) {
+      const modal = document.getElementById('modal-' + key);
+      if (!modal) return;
+      modal.setAttribute('aria-hidden', 'true');
+      modal.classList.remove('is-open');
+      document.body.classList.remove('modal-open');
+      // Return focus to the card that opened the modal
+      const card = document.querySelector('[data-project="' + key + '"]');
+      if (card) card.focus();
+    }
+
+    // Close any open modal on Escape key press
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.project-modal.is-open').forEach(modal => {
+          const key = modal.id.replace('modal-', '');
+          closeProjectModal(key);
+        });
+        // Also close mobile sidebar on Escape
+        if (sidebar && sidebar.classList.contains('is-open')) {
+          closeSidebar();
+        }
+      }
+    });
+
+    // 8. Project Category Filter Tabs
+    // Clicking a filter button shows only cards matching data-category,
+    // with a smooth fade/scale transition via CSS animation class.
+    const projFilterBtns = document.querySelectorAll('.proj-filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    projFilterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+
+        // Update active button state
+        projFilterBtns.forEach(b => {
+          b.classList.remove('is-active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-selected', 'true');
+
+        // Show/hide project cards with animation
+        projectCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.display = 'flex';
+            // Re-trigger entry animation
+            card.classList.remove('anim-in');
+            requestAnimationFrame(() => card.classList.add('anim-in'));
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // 9. Scroll-Reveal Animations via Intersection Observer
+    // Adds 'is-visible' class to .reveal elements as they enter viewport.
+    // CSS handles the actual fade-in + slide-up via transition on .reveal.
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          // Unobserve after reveal so it doesn't re-fire
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -48px 0px' });
+
+    // Observe all designated reveal targets
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // 10. Staggered card animation for project grid on load
+    document.querySelectorAll('.project-card').forEach((card, i) => {
+      card.style.transitionDelay = `${i * 80}ms`;
+      card.classList.add('anim-in');
+    });
+
+  </script>
+
+</body>
+</html>
